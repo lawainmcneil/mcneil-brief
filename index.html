@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The McNeil Brief: Field Edition</title>
-  <meta name="description" content="Weekly marketing intelligence for trade and home service businesses. By Lawain McNeil." />
-  <meta property="og:title" content="The McNeil Brief: Field Edition" />
-  <meta property="og:description" content="Weekly marketing intelligence for trade and home service businesses." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://brief.lawainmcneil.com" />
+  <title>The AI Shortlist Problem — The McNeil Brief: Field Edition</title>
+
+  <!-- OG / SMS unfurl tags -->
+  <meta property="og:title" content="The McNeil Brief: Field Edition — Issue 001" />
+  <meta property="og:description" content="The AI Shortlist Problem. Homeowners are no longer starting their search on Google. Here's what that means for your trade business this week." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lawainmcneil.com/brief/field-001" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The McNeil Brief: Field Edition — Issue 001" />
+  <meta name="twitter:description" content="The AI Shortlist Problem. What every trade contractor needs to know this week." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,10 +24,12 @@
     :root {
       --navy: #2C3A4A;
       --navy-deep: #1E2A36;
+      --navy-mid: #3A4D62;
       --ivory: #F5F2EC;
       --ivory-mid: #EDE9E0;
       --ivory-dark: #D6D2C8;
       --ink: #1a1a1a;
+      --ink-mid: #2a2a2a;
       --ink-light: #555;
       --white: #ffffff;
       --serif: 'DM Serif Display', Georgia, serif;
@@ -37,17 +43,20 @@
       font-family: var(--sans);
       color: var(--ink);
       min-height: 100vh;
+      padding: 0;
     }
 
+    /* ── Page wrapper ── */
     .page {
       max-width: 640px;
       margin: 0 auto;
+      background: var(--ivory);
     }
 
     /* ── Masthead ── */
     .masthead {
       background: var(--navy);
-      padding: 2rem 1.5rem 1.5rem;
+      padding: 1.75rem 1.5rem 1.375rem;
     }
     .masthead-byline {
       font-size: 10px;
@@ -68,7 +77,7 @@
       font-size: 13px;
       font-weight: 300;
       color: rgba(255,255,255,0.45);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       letter-spacing: 0.03em;
     }
     .masthead-meta {
@@ -88,97 +97,123 @@
       color: rgba(255,255,255,0.72);
       font-weight: 500;
     }
-    .masthead-desc {
-      font-size: 12px;
-      color: rgba(255,255,255,0.38);
+    .dateline {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
       font-weight: 300;
-      margin-top: 14px;
-      line-height: 1.6;
-      max-width: 420px;
     }
 
     /* ── Issue bar ── */
     .issue-bar {
       background: var(--navy-deep);
       padding: 9px 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .issue-bar-label {
+    .issue-label {
       font-size: 10px;
       color: rgba(255,255,255,0.38);
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-
-    /* ── Archive list ── */
-    .archive {
-      padding: 1.75rem 1.5rem;
+    .issue-topic {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
-    .archive-heading {
+
+    /* ── Body ── */
+    .body {
+      padding: 1.75rem 1.5rem 0;
+    }
+
+    /* ── Sections ── */
+    .section {
+      padding-bottom: 1.625rem;
+      margin-bottom: 1.625rem;
+      border-bottom: 0.5px solid var(--ivory-dark);
+    }
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .section-label {
       font-size: 9px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--navy);
-      opacity: 0.5;
-      margin-bottom: 1rem;
+      opacity: 0.55;
+      margin-bottom: 9px;
       font-weight: 500;
     }
-
-    .issue-item {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 1rem 0;
-      border-bottom: 0.5px solid var(--ivory-dark);
-      text-decoration: none;
-      color: inherit;
-    }
-    .issue-item:first-of-type { border-top: 0.5px solid var(--ivory-dark); }
-    .issue-item:hover .issue-topic { color: var(--navy); }
-
-    .issue-left { flex: 1; }
-    .issue-number {
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      margin-bottom: 4px;
-      font-weight: 400;
-    }
-    .issue-topic {
-      font-size: 16px;
-      font-weight: 500;
+    .section-body {
+      font-size: 15.5px;
+      line-height: 1.72;
       color: var(--ink);
-      margin-bottom: 3px;
-      transition: color 0.15s;
-    }
-    .issue-date {
-      font-size: 12px;
-      color: var(--ink-light);
       font-weight: 300;
     }
-    .issue-arrow {
-      font-size: 18px;
-      color: var(--ivory-dark);
-      flex-shrink: 0;
-      padding-top: 2px;
-      transition: color 0.15s;
-    }
-    .issue-item:hover .issue-arrow { color: var(--navy); }
+    .section-body strong { font-weight: 500; }
+    .section-body em { font-style: italic; color: var(--ink-light); }
 
-    /* Latest badge */
-    .latest-badge {
-      display: inline-block;
-      background: var(--navy);
-      color: rgba(255,255,255,0.85);
+    /* ── Trade grid ── */
+    .trade-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .trade-grid { grid-template-columns: 1fr; }
+    }
+    .trade-card {
+      background: var(--ivory-mid);
+      border-radius: 3px;
+      padding: 11px 13px;
+      border-left: 2px solid var(--navy);
+    }
+    .trade-name {
       font-size: 9px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 2px 7px;
-      border-radius: 2px;
-      margin-left: 8px;
-      vertical-align: middle;
+      color: var(--navy);
+      margin-bottom: 5px;
       font-weight: 500;
+    }
+    .trade-text {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--ink-mid);
+      font-weight: 300;
+    }
+
+    /* ── Number block ── */
+    .number-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 1.375rem 1.25rem;
+      background: var(--navy);
+      border-radius: 3px;
+      margin-top: 8px;
+    }
+    .number-big {
+      font-family: var(--serif);
+      font-size: 46px;
+      color: var(--white);
+      line-height: 1;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .number-context {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      padding-top: 6px;
+      font-weight: 300;
     }
 
     /* ── Footer ── */
@@ -203,11 +238,16 @@
     }
     .footer-link:hover { color: rgba(255,255,255,0.55); }
 
+    /* ── Responsive ── */
     @media (max-width: 480px) {
-      .masthead { padding: 1.5rem 1.25rem; }
+      .masthead { padding: 1.5rem 1.25rem 1.125rem; }
       .masthead-name { font-size: 22px; }
-      .archive { padding: 1.5rem 1.25rem; }
+      .body { padding: 1.5rem 1.25rem 0; }
+      .section { padding-bottom: 1.375rem; margin-bottom: 1.375rem; }
+      .section-body { font-size: 15px; }
+      .number-big { font-size: 38px; }
       .brief-footer { padding: 10px 1.25rem; }
+      .issue-bar { padding: 8px 1.25rem; }
     }
   </style>
 </head>
@@ -220,38 +260,66 @@
     <p class="masthead-sub">/ Field Edition</p>
     <div class="masthead-meta">
       <span class="edition-tag">Trade &amp; Home Services</span>
+      <span class="dateline">Week of March 31, 2026 &nbsp;&middot;&nbsp; Issue 001</span>
     </div>
-    <p class="masthead-desc">Weekly marketing intelligence for trade and home service businesses. Plainspoken. To the point. One signal, one move, one number.</p>
   </div>
 
   <div class="issue-bar">
-    <span class="issue-bar-label">All Issues</span>
+    <span class="issue-label">This week</span>
+    <span class="issue-topic">The AI Shortlist Problem</span>
   </div>
 
-  <div class="archive">
-    <p class="archive-heading">Field Edition &mdash; 2026</p>
+  <div class="body">
 
-    <!-- Add new issues at the top. Copy the block below for each new issue. -->
+    <div class="section">
+      <p class="section-label">The Signal</p>
+      <p class="section-body">Homeowners are no longer starting their search on Google. They're asking ChatGPT, Gemini, and Siri who to call. These AI tools build a shortlist of contractors before the homeowner ever sees a search results page. Apple is rolling out AI-powered Siri recommendations this spring — pulling from reviews, directories, and web content to recommend specific businesses by name. More than 1.2 billion iPhones are in play. The filter just got a lot harder to pass through.</p>
+    </div>
 
-    <a class="issue-item" href="field-001.html">
-      <div class="issue-left">
-        <p class="issue-number">Issue 001 <span class="latest-badge">Latest</span></p>
-        <p class="issue-topic">The AI Shortlist Problem</p>
-        <p class="issue-date">Week of March 31, 2026</p>
+    <div class="section">
+      <p class="section-label">Why It Matters</p>
+      <p class="section-body">Your clients compete in a world where the homeowner has already made a shortlist before picking up the phone. If an AI tool can't find enough trustworthy signals about a business, that business doesn't make the cut. Google still matters — but AI filters <em>before</em> Google validates. Being invisible at the shortlist stage means competing for fewer calls at the validation stage. The businesses showing up in AI results aren't spending more on ads. They have more reviews, more specific content, and more consistent information across the web.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">The Move</p>
+      <p class="section-body">This week: audit one client's Google Business Profile for completeness, recency, and review volume. Reviews need to be <strong>fresh and specific</strong> — AI tools read the actual text of reviews to understand what a contractor does. A review that says <em>"Great work on our James Hardie siding install"</em> is worth ten that say <em>"Good job, highly recommend."</em> Build a review request template that prompts customers to describe the actual work. Send it within 24 hours of job completion.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Homeowner Mindset</p>
+      <p class="section-body">Homeowners in 2026 are doing more research before they call — and doing it in fewer steps. They're asking AI tools specific questions: <em>"Who installs Hardie siding in my area and what does it cost?"</em> They expect an answer, not a list of links. The businesses that get recommended are the ones whose websites and reviews actually answer those questions. Generic service pages with stock photos and a phone number don't get surfaced.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">In Your World</p>
+      <div class="trade-grid">
+        <div class="trade-card">
+          <p class="trade-name">Roofers &amp; Painters</p>
+          <p class="trade-text">Add neighborhood and job-type language to service pages. "Storm damage roof repair in [city]" outperforms "roofing services" every time in AI search.</p>
+        </div>
+        <div class="trade-card">
+          <p class="trade-name">Window &amp; Door Installers</p>
+          <p class="trade-text">Homeowners ask AI about specific brands. If you install Andersen or Pella, say so on your site. Generic pages don't get recommended.</p>
+        </div>
+        <div class="trade-card">
+          <p class="trade-name">Pool &amp; Lawn</p>
+          <p class="trade-text">Seasonal content is your edge. A page titled "Pool opening checklist for [region] homeowners" answers the exact question being asked in April.</p>
+        </div>
+        <div class="trade-card">
+          <p class="trade-name">Hardie Siding &amp; Custom Wood</p>
+          <p class="trade-text">Long sales cycles mean longer research. More content touchpoints — project pages, FAQs, cost guides — means more chances to show up before a competitor does.</p>
+        </div>
       </div>
-      <span class="issue-arrow">→</span>
-    </a>
+    </div>
 
-    <!-- Issue 002 template (uncomment and fill when ready):
-    <a class="issue-item" href="field-002.html">
-      <div class="issue-left">
-        <p class="issue-number">Issue 002</p>
-        <p class="issue-topic">[Signal Topic]</p>
-        <p class="issue-date">Week of [Date]</p>
+    <div class="section">
+      <p class="section-label">The Number</p>
+      <div class="number-block">
+        <span class="number-big">57%</span>
+        <span class="number-context">of mobile searches now end without a click to a website. The answer surfaced on the results page. If your business isn't the answer, it's invisible.</span>
       </div>
-      <span class="issue-arrow">→</span>
-    </a>
-    -->
+    </div>
 
   </div>
 
