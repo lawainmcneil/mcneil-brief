@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The McNeil Brief — Financial Advisor Research Edition · April 6, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ─── DESIGN TOKENS ─── */
+:root {
+  --navy:        #0E1A2B;
+  --navy-mid:    #162236;
+  --navy-light:  #1E3050;
+  --gold:         #C9A84C;
+  --gold-light:   #E2C06A;
+  --cream:       #F7F3EC;
+  --cream-dark:  #EDE8DF;
+  --ink:         #1A1A1A;
+  --ink-mid:     #3C3C3C;
+  --ink-light:   #6B6B6B;
+  --ow-color:    #2A7A4B;
+  --uw-color:    #B83232;
+  --n-color:     #4A5568;
+  --white:       #FFFFFF;
+
+  --serif-display: 'Playfair Display', Georgia, serif;
+  --serif-body:    'Source Serif 4', Georgia, serif;
+  --condensed:     'Barlow Condensed', 'Arial Narrow', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--serif-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #C8C0B4;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ─── PAGE SHELL ─── */
+.page {
+  max-width: 960px;
+  margin: 36px auto;
+  background: var(--cream);
+  box-shadow: 0 8px 60px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.2);
+  position: relative;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--gold) 0%, var(--gold-light) 40%, var(--gold) 100%);
+  z-index: 10;
+}
+
+/* ─── COMPLIANCE STRIP ─── */
+.compliance {
+  background: var(--navy);
+  color: rgba(255,255,255,.35);
+  font-family: var(--condensed);
+  font-size: 8.5px;
+  letter-spacing: .08em;
+  text-align: center;
+  padding: 5px 40px;
+  line-height: 1.4;
+}
+
+/* ─── MASTHEAD ─── */
+.masthead {
+  background: var(--navy);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.masthead::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,.015) 60px, rgba(255,255,255,.015) 61px),
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,.015) 40px, rgba(255,255,255,.015) 41px);
+  pointer-events: none;
+}
+
+.masthead-inner {
+  position: relative;
+  z-index: 2;
+  padding: 32px 44px 28px 52px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 32px;
+}
+
+.masthead-eyebrow {
+  font-family: var(--condensed);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.masthead-eyebrow::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: var(--gold);
+  opacity: .5;
+}
+
+.wordmark { display: flex; flex-direction: column; gap: 0; }
+
+.wordmark-first {
+  font-family: var(--condensed);
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: .14em;
+  line-height: 1;
+  color: rgba(255,255,255,.5);
+  text-transform: uppercase;
+}
+
+.wordmark-last {
+  font-family: var(--condensed);
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  line-height: .88;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.wordmark-sub {
+  font-family: var(--serif-body);
+  font-style: italic;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,.45);
+  letter-spacing: .03em;
+  margin-top: 10px;
+}
+
+.headline-block {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.issue-headline {
+  font-family: var(--serif-display);
+  font-size: 26px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--white);
+  max-width: 520px;
+}
+
+.issue-headline em {
+  font-style: normal;
+  color: var(--gold-light);
+}
+
+.masthead-right { text-align: right; padding-top: 4px; }
+
+.pub-badge {
+  font-family: var(--condensed);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,.35);
+  padding: 5px 10px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.issue-meta {
+  font-family: var(--condensed);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  line-height: 2;
+}
+
+.issue-num {
+  font-family: var(--condensed);
+  font-size: 42px;
+  font-weight: 800;
+  color: rgba(255,255,255,.08);
+  line-height: 1;
+  margin-top: 8px;
+  letter-spacing: -.02em;
+}
+
+/* Gold rule */
+.copper-rule {
+  height: 3px;
+  background: linear-gradient(to right, var(--gold) 0%, var(--gold-light) 50%, transparent 100%);
+  margin-left: 4px;
+}
+
+/* ─── BODY LAYOUT ─── */
+.body-wrap {
+  display: grid;
+  grid-template-columns: 1fr 230px;
+}
+
+.main {
+  padding: 36px 36px 44px 52px;
+  border-right: 1px solid var(--cream-dark);
+}
+
+.sidebar {
+  background: var(--navy);
+  padding: 28px 22px;
+  position: relative;
+}
+
+/* ─── VOICE TAG ─── */
+.voice-tag {
+  font-family: var(--serif-body);
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-light);
+  border-left: 3px solid var(--gold);
+  padding: 4px 0 4px 14px;
+  margin-bottom: 26px;
+  line-height: 1.6;
+  background: linear-gradient(to right, rgba(201,168,76,.06), transparent);
+}
+
+/* ─── LEAD BULLETS ─── */
+.lead-intro {
+  font-family: var(--condensed);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.lead-bullets { list-style: none; margin-bottom: 30px; }
+
+.lead-bullets li {
+  padding: 10px 0 10px 20px;
+  border-bottom: 1px solid var(--cream-dark);
+  font-size: 13.5px;
+  line-height: 1.5;
+  position: relative;
+  color: var(--ink-mid);
+  font-family: var(--serif-body);
+  font-weight: 300;
+}
+
+.lead-bullets li:first-child { border-top: 2px solid var(--gold); }
+
+.lead-bullets li::before {
+  content: '◆';
+  position: absolute;
+  left: 0; top: 12px;
+  color: var(--gold);
+  font-size: 8px;
+}
+
+.lead-bullets li strong {
+  font-weight: 600;
+  color: var(--ink);
+  font-style: italic;
+}
+
+/* ─── SECTION HEADS ─── */
+.s-head {
+  font-family: var(--condensed);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin: 30px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.s-head::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: .4;
+}
+
+/* ─── STORY CARDS ─── */
+.story-card {
+  margin-bottom: 18px;
+  padding: 16px 18px 16px 18px;
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-left: 4px solid var(--gold);
+  position: relative;
+}
+
+.story-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+
+.story-num {
+  font-family: var(--condensed);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  color: var(--gold);
+}
+
+.cat-badge {
+  font-family: var(--condensed);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 2px 8px 1px;
+  background: var(--navy);
+  color: var(--gold-light);
+}
+
+.story-headline {
+  font-family: var(--condensed);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 5px;
+  text-decoration: none;
+  display: block;
+}
+
+.story-headline:hover { color: var(--gold); }
+
+.story-source {
+  font-family: var(--serif-body);
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-light);
+  margin-bottom: 9px;
+  letter-spacing: .02em;
+}
+
+.story-blurb {
+  font-family: var(--serif-body);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.content-angle {
+  font-family: var(--serif-body);
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-light);
+  line-height: 1.55;
+  border-top: 1px solid var(--cream-dark);
+  padding-top: 9px;
+}
+
+.content-angle-label {
+  font-family: var(--condensed);
+  font-size: 8px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-right: 6px;
+}
+
+/* ─── POINT OF VIEW DISPATCH ─── */
+.dispatch-box {
+  margin: 26px 0;
+  padding: 20px 24px;
+  background: var(--navy);
+  border-left: 4px solid var(--gold);
+  position: relative;
+}
+
+.dispatch-box::before {
+  content: '\201C';
+  position: absolute;
+  top: -6px; left: 14px;
+  font-family: var(--serif-display);
+  font-size: 72px;
+  color: var(--gold);
+  opacity: .18;
+  line-height: 1;
+}
+
+.dispatch-label {
+  font-family: var(--condensed);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
+.dispatch-text {
+  font-family: var(--serif-body);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.65;
+  color: rgba(255,255,255,.85);
+}
+
+.dispatch-text strong {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
+.dispatch-attr {
+  font-family: var(--condensed);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-top: 10px;
+}
+
+/* ─── THE NUMBER ─── */
+.number-box {
+  margin: 20px 0;
+  padding: 14px 18px;
+  background: var(--cream-dark);
+  border-left: 4px solid var(--navy);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.number-big {
+  font-family: var(--condensed);
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+}
+
+.number-label {
+  font-family: var(--condensed);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.number-text {
+  font-family: var(--serif-body);
+  font-size: 12.5px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.55;
+}
+
+/* ─── MARKET SNAPSHOT ─── */
+.market-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--cream-dark);
+  border: 1px solid var(--cream-dark);
+  margin-bottom: 4px;
+}
+
+.market-cell { background: var(--cream); padding: 10px 14px; }
+
+.market-cell .label {
+  font-family: var(--condensed);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 3px;
+}
+
+.market-cell .value {
+  font-family: var(--condensed);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.01em;
+}
+
+.market-cell .ctx { font-size: 10.5px; color: var(--ink-light); margin-top: 2px; font-style: italic; }
+
+.val-up   { color: var(--ow-color); }
+.val-down { color: var(--uw-color); }
+.val-flat { color: var(--n-color); }
+
+/* ─── BOTTOM LINE ─── */
+.bottom-line {
+  margin-top: 30px;
+  padding: 22px 26px;
+  background: var(--navy);
+  border-left: 4px solid var(--gold);
+}
+
+.bottom-line::before {
+  content: 'BOTTOM LINE';
+  font-family: var(--condensed);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.bottom-line p {
+  font-family: var(--serif-body);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.85);
+  font-weight: 300;
+}
+
+/* ─── SIDEBAR ─── */
+.sidebar-module {
+  margin-bottom: 26px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.sidebar-module:last-child { border-bottom: none; }
+
+.sb-label {
+  font-family: var(--condensed);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(201,168,76,.18);
+}
+
+.identity-card {
+  text-align: center;
+  padding: 4px 0 20px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  margin-bottom: 24px;
+}
+
+.id-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--navy-light);
+  border: 2px solid rgba(201,168,76,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  font-family: var(--serif-display);
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--gold-light);
+  overflow: hidden;
+}
+
+.id-name {
+  font-family: var(--condensed);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+
+.id-title {
+  font-family: var(--serif-body);
+  font-style: italic;
+  font-size: 10.5px;
+  font-weight: 300;
+  color: rgba(255,255,255,.4);
+  line-height: 1.6;
+}
+
+.id-contact {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.id-link {
+  display: block;
+  font-family: var(--condensed);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--gold-light);
+  text-decoration: none;
+  line-height: 2;
+}
+
+.sb-focus {
+  background: var(--gold);
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.sb-focus-label {
+  font-family: var(--condensed);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(14,26,43,.7);
+  margin-bottom: 6px;
+}
+
+.sb-focus p { font-size: 12px; line-height: 1.55; color: var(--navy); font-weight: 400; }
+
+.sb-call { margin-bottom: 14px; }
+
+.sb-call-label {
+  font-family: var(--condensed);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: .03em;
+  margin-bottom: 3px;
+}
+
+.sb-call-text { font-size: 11px; color: rgba(255,255,255,.5); line-height: 1.5; font-weight: 300; font-style: italic; }
+
+.reading-item { margin-bottom: 12px; }
+
+.reading-title {
+  font-family: var(--condensed);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.reading-source {
+  font-family: var(--serif-body);
+  font-size: 10.5px;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255,255,255,.35);
+}
+
+.theme-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+.theme-tag {
+  font-family: var(--condensed);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border: 1px solid rgba(201,168,76,.3);
+  color: rgba(255,255,255,.6);
+}
+
+.sb-issuenum {
+  font-family: var(--condensed);
+  font-size: 56px;
+  font-weight: 800;
+  color: rgba(255,255,255,.06);
+  line-height: 1;
+  letter-spacing: -.02em;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.sb-issuenum-label {
+  font-family: var(--condensed);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  text-align: right;
+  margin-top: -4px;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--navy-mid);
+  padding: 20px 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--gold);
+  margin-left: 4px;
+}
+
+.footer-wordmark {
+  font-family: var(--condensed);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.footer-wordmark span {
+  display: block;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: .07em;
+  color: rgba(255,255,255,.32);
+  margin-top: 3px;
+  text-transform: none;
+  font-family: var(--serif-body);
+  font-style: italic;
+}
+
+.footer-disc {
+  font-size: 9px;
+  color: rgba(255,255,255,.25);
+  max-width: 380px;
+  text-align: right;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+@media print {
+  body { background: white; }
+  .page { box-shadow: none; margin: 0; max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="compliance">
+    NOT FDIC INSURED &nbsp;·&nbsp; NOT A DEPOSIT &nbsp;·&nbsp; MAY LOSE VALUE &nbsp;·&nbsp; NOT INSURED BY ANY FEDERAL GOVERNMENT AGENCY &nbsp;·&nbsp; NOT GUARANTEED BY ANY BANK OR SAVINGS ASSOCIATION
+  </div>
+
+  <!-- ═══ MASTHEAD ═══ -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div>
+        <div class="masthead-eyebrow">Financial Advisor Research Edition</div>
+        <div class="wordmark">
+          <div class="wordmark-first">Lawain</div>
+          <div class="wordmark-last">McNeil</div>
+          <div class="wordmark-sub">Marketing &amp; AI Strategy &nbsp;·&nbsp; Financial Services</div>
+        </div>
+        <div class="headline-block">
+          <div class="issue-headline">
+            The week that tested what you think you know about <em>markets, estate law, and your own tech stack.</em>
+          </div>
+        </div>
+      </div>
+      <div class="masthead-right">
+        <div class="pub-badge">The McNeil Brief</div>
+        <div class="issue-meta">
+          Week of<br>
+          April 6, 2026<br><br>
+          Research<br>
+          Edition
+        </div>
+        <div class="issue-num">RA</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="copper-rule"></div>
+
+  <!-- ═══ BODY ═══ -->
+  <div class="body-wrap">
+
+    <!-- ══════════ MAIN COLUMN ══════════ -->
+    <main class="main">
+
+      <div class="voice-tag">
+        Ten stories. Five categories. One thread: every one of these forces is already inside your book of business — whether you're tracking them or not.
+      </div>
+
+      <div class="lead-intro">This Week</div>
+      <ul class="lead-bullets">
+        <li><strong>Liberation Day turned one.</strong> Tariffs were struck down by the Supreme Court, new Section 301 investigations are live, and institutional investors are quietly rethinking U.S. asset concentration.</li>
+        <li><strong>The $15M estate exemption is now permanent.</strong> The OBBBA killed the sunset. Every client with an estate plan written around the old assumptions needs a review — and most haven't asked yet.</li>
+        <li><strong>AI notetakers hit 43% market share.</strong> The T3 survey is out. The race to own the advisor operating system is no longer theoretical — it's funding rounds and custodian selloffs.</li>
+      </ul>
+
+      <!-- ── MARKETS ── -->
+      <div class="s-head">Markets</div>
+
+      <div class="story-card">
+        <div class="story-meta">
+          <span class="story-num">01</span>
+          <span class="cat-badge">Markets</span>
+        </div>
+        <a class="story-headline" href="https://www.cnbc.com/2026/04/02/liberation-day-1-year-on-investors-are-rethinking-us-assets.html" target="_blank">One Year of Liberation Day: Investors Are Rethinking American Exceptionalism</a>
+        <div class="story-source">CNBC &nbsp;·&nbsp; April 2, 2026</div>
+        <div class="story-blurb">A year after Liberation Day tariffs shocked global markets, institutional money is quietly reassessing U.S. asset concentration. The Supreme Court struck down the tariff mechanism in February, but a 10% universal tariff remains in place and new Section 301 investigations are already underway. The narrative of American exceptionalism is getting pressure-tested in real time — and your clients are watching the headlines.</div>
+        <div class="content-angle"><span class="content-angle-label">Content Angle</span>Write the post every client is afraid to ask: "Should I be less exposed to U.S. assets right now?" Frame it around long-term perspective, not panic — but don't pretend the question isn't on the table.</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-meta">
+          <span class="story-num">02</span>
+          <span class="cat-badge">Markets</span>
+        </div>
+        <a class="story-headline" href="https://www.kitces.com/blog/10-insights-2026-advisors-market-us-clearnomics-charts-artificial-intelligence-tariffs-federal-reserve-dollar-valuations-diversification/" target="_blank">10 Charts to Help Explain the 2026 Market to Clients</a>
+        <div class="story-source">Kitces.com &nbsp;·&nbsp; February 25, 2026</div>
+        <div class="story-blurb">Kitces and Clearnomics built a ten-chart visual framework covering tariff impact, AI valuation risk, dollar depreciation, the approaching Fed leadership change, and international equity outperformance. The S&amp;P has posted double-digit returns in six of the past seven years — which is exactly the context clients need when they're tempted to move to cash. This is a client meeting prep kit, not just an article.</div>
+        <div class="content-angle"><span class="content-angle-label">Content Angle</span>Build a one-page "what we're watching in 2026" brief for clients using three or four of these themes in plain language. Lead with what they already saw, then frame what comes next.</div>
+      </div>
+
+      <div class="dispatch-box">
+        <div class="dispatch-label">Point of View</div>
+        <div class="dispatch-text">The market doesn't care about your clients' feelings about tariffs. But their feelings about tariffs will absolutely dictate what they do with their portfolios if you're not already in the conversation.</div>
+        <div class="dispatch-attr">— Lawain McNeil</div>
+      </div>
+
+      <!-- ── ADVISOR TECH ── -->
+      <div class="s-head">Advisor Tech</div>
+
+      <div class="story-card">
+        <div class="story-meta">
+          <span class="story-num">03</span>
+          <span class="cat-badge">Advisor Tech</span>
+        </div>
+        <a class="story-headline" href="https://www.kitces.com/blog/the-latest-in-financial-advisortech-march-2026-altruist-jump-zocks-ria-custodian/" target="_blank">AdvisorTech March 2026: Altruist's AI Tax Tool Sparks Custodian Selloff — And a Bigger Story</a>
+        <div class="story-source">Kitces.com &nbsp;·&nbsp; March 2026</div>
+        <div class="story-blurb">Altruist's AI-powered tax planning add-on triggered a selloff in Schwab, LPL, and Raymond James stock — not because AI is replacing advisors, but because Altruist is emerging as a real custodial competitor. Jump and Zocks each closed Series B rounds the same month. The headline is disruption. The real story is consolidation of the advisor operating system around whoever gets integration right.</div>
+        <div class="content-angle"><span class="content-angle-label">Content Angle</span>Write a plain-language breakdown for advisors: what the AI notetaker arms race actually means for your practice, and what questions to ask any vendor claiming to have the answer.</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-meta">
+          <span class="story-num">04</span>
+          <span class="cat-badge">Advisor Tech</span>
+        </div>
+        <a class="story-headline" href="https://t3conferences.com/news/t3-in-the-news/" target="_blank">AI Notetakers Hit 43% Market Share — Back-Office Jobs Are Next</a>
+        <div class="story-source">T3 / Inside Information Survey &nbsp;·&nbsp; 2026 Conference, New Orleans</div>
+        <div class="story-blurb">The 2026 T3 advisor software survey landed with a result worth watching: AI notetakers have reached 43% market share across the advisory community. T3 founder Joel Bruckenstein said the advisory firm structure will look "significantly different" within a decade, with back-office roles most immediately at risk. The advisors positioning themselves as strategic leads will be fine. The ones who are the process will not.</div>
+        <div class="content-angle"><span class="content-angle-label">Content Angle</span>Write the post your team needs to read: "What AI is actually going to change at our firm in the next 18 months." Be specific about back office. Be honest about the upside.</div>
+      </div>
+
+      <div class="number-box">
+        <div class="number-big">43%</div>
+        <div>
+          <span class="number-label">The Number</span>
+          <div class="number-text">Share of advisory firms now using AI notetaking tools, per the 2026 T3/Inside Information survey. Two years ago it was in the single digits. The majority moved in one product cycle.</div>
+        </div>
+      </div>
+
+      <!-- ── ESTATE PLANNING ── -->
+      <div class="s-head">Estate Planning</div>
+
+      <div class="story-card">
+        <div class="story-meta">
+          <span class="story-num">05</span>
+          <span class="cat-badge">Estate Planning</span>
+        </div>
+        <a class="story-headline" href="https://www.fool.com/retirement/2026/03/31/estate-tax-exemption-rose-to-15-million-2026/" target="_blank">The Estate Tax Exemption Just Rose to $15 Million — What It Means for Your Clients' Legacy Plans</a>
+        <div class="story-source">The Motley Fool &nbsp;·&nbsp; April 3, 2026</div>
+        <div class="story-blurb">The One Big Beautiful Bill Act killed the TCJA sunset and raised the federal estate and gift tax exemption to $15 million per individual — $30 million for married couples — with no expiration and future inflation indexing. The "use it or lose it" urgency is gone, but the planning conversation just got bigger. Estate plans written around the old sunset provisions need a review. Most clients haven't asked yet.</div>
+        <div class="content-angle"><span class="content-angle-label">Content Angle</span>Publish a short "what just changed" summary for your HNW clients. Frame it as good news requiring a fresh look — not a crisis, but a reason to schedule time.</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-meta">
+          <span class="story-num">06</span>
+          <span class="cat-badge">Estate Planning</span>
+        </div>
+        <a class="story-headline" href="https://www.cannonfinancial.com/resources/estate-planning-in-2026-a-few-tax-law-changes-to-dicuss-with-clients" target="_blank">Estate Planning in 2026: Key Tax Law Changes to Discuss With Clients</a>
+        <div class="story-source">Cannon Financial Institute &nbsp;·&nbsp; April 1, 2026</div>
+        <div class="story-blurb">Beyond the exemption headline are operational details most advisors haven't surfaced yet: beneficiary designations that may need updating, trust language built around now-defunct sunset assumptions, and Medicare Part D's new $2,100 prescription drug out-of-pocket cap. The advisors who make these conversations proactive look like practitioners. The ones who wait look like they weren't paying attention.</div>
+        <div class="content-angle"><span class="content-angle-label">Content Angle</span>Run a short "estate plan audit checklist" as client-facing content — three to five specific things to review now that the tax landscape has changed. Make it practical and share it broadly.</div>
+      </div>
+
+      <!-- ── COMPLIANCE ── -->
+      <div class="s-head">Compliance</div>
+
+      <div class="story-card">
+        <div class="story-meta">
+          <span class="story-num">07</span>
+          <span class="cat-badge">Compliance</span>
+        </div>
+        <a class="story-headline" href="https://www.fa-mag.com/" target="_blank">RIAs Unprepared as New SEC Cyber and Data Regulations Loom</a>
+        <div class="story-source">FA Magazine &nbsp;·&nbsp; April 2026</div>
+        <div class="story-blurb">The SEC's Regulation S-P compliance deadline for smaller RIAs — firms under $1.5B AUM — hits June 3, 2026. Requirements include incident response programs, breach notification protocols, third-party vendor oversight, and data disposal standards. The 2026 exam priorities doubled down on cybersecurity and AI governance. If your incident response plan is a Word document from 2021, it's time to open it.</div>
+        <div class="content-angle"><span class="content-angle-label">Content Angle</span>Write a practice management post demystifying Reg S-P compliance in plain English. Position it as a checklist, not a lecture. Your smaller firm clients need this and probably aren't reading the legal alerts.</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-meta">
+          <span class="story-num">08</span>
+          <span class="cat-badge">Compliance</span>
+        </div>
+        <a class="story-headline" href="https://www.investmentnews.com/retirement-planning/washingtons-new-millionaire-tax-what-advisors-need-to-watch/265981" target="_blank">Washington State's New Millionaire Tax: What Advisors Need to Watch</a>
+        <div class="story-source">InvestmentNews &nbsp;·&nbsp; April 4, 2026</div>
+        <div class="story-blurb">Washington State enacted a new levy on seven-figure incomes that could reshape residency decisions, compensation structures, and planning conversations for high-earning Pacific Northwest clients. State-level tax experiments on wealthy earners are no longer theoretical. Advisors everywhere with UHNW clients need to at least be conversational on where this is heading.</div>
+        <div class="content-angle"><span class="content-angle-label">Content Angle</span>Write the advisory piece on state-level tax migration: what moves UHNW clients actually consider, and how to have that conversation without sounding like you're recommending anything specific.</div>
+      </div>
+
+      <!-- ── PRACTICE MANAGEMENT ── -->
+      <div class="s-head">Practice Management</div>
+
+      <div class="story-card">
+        <div class="story-meta">
+          <span class="story-num">09</span>
+          <span class="cat-badge">Practice Management</span>
+        </div>
+        <a class="story-headline" href="https://www.marketsgroup.org/news/us-ria-ma-update-more-than-100b-already-on-the-move-in-2026" target="_blank">RIA M&amp;A Surpasses $100B in 2026 — And the Middle Market Is Disappearing</a>
+        <div class="story-source">Markets Group &nbsp;·&nbsp; February 16, 2026</div>
+        <div class="story-blurb">Over $100 billion in RIA client assets changed hands in the first five weeks of 2026, up 9% year-over-year. The real structural story: firms in the $500M–$1B AUM range are getting squeezed — too big to be a tuck-in, too small to be a platform. Private equity is running buy-and-build strategies at scale. Client loyalty follows the advisor, not the logo. If you haven't thought about where your firm fits in five years, this is the year.</div>
+        <div class="content-angle"><span class="content-angle-label">Content Angle</span>Write the piece advisors actually need: a framework for evaluating M&amp;A options versus organic growth. Don't just describe the market — give them a decision lens.</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-meta">
+          <span class="story-num">10</span>
+          <span class="cat-badge">Practice Management</span>
+        </div>
+        <a class="story-headline" href="https://www.wealthmanagement.com/wealth-management-industry-trends/ria-news" target="_blank">AI Won't Alter Client-Advisor Ratios — But It Will Separate the Scalable From the Stuck</a>
+        <div class="story-source">WealthManagement.com &nbsp;·&nbsp; April 1, 2026</div>
+        <div class="story-blurb">The RIA Edge 100 report found that AI is not going to change how many clients an advisor can handle — at least not yet. What it will change is the operational floor. Firms automating the workflows beneath the relationship will have more margin, capacity, and consistency than those still running on spreadsheets and phone tag. The advisor-client ratio isn't the prize. The efficiency ratio is.</div>
+        <div class="content-angle"><span class="content-angle-label">Content Angle</span>Write the reframe your market needs: "AI isn't about serving more clients. It's about serving them better." Position around depth of service, not volume. This lands differently for RIAs than the tech press frames it.</div>
+      </div>
+
+      <!-- ── MARKET SNAPSHOT ── -->
+      <div class="s-head" style="margin-top:28px;">Market Snapshot</div>
+      <div class="market-grid">
+        <div class="market-cell">
+          <div class="label">S&amp;P 500</div>
+          <div class="value val-down">Pressure</div>
+          <div class="ctx">Tariff overhang · Volatility elevated</div>
+        </div>
+        <div class="market-cell">
+          <div class="label">10-Yr Treasury</div>
+          <div class="value val-flat">~4.3%</div>
+          <div class="ctx">Inflation expectations · Fed watching</div>
+        </div>
+        <div class="market-cell">
+          <div class="label">Gold</div>
+          <div class="value val-up">+18%</div>
+          <div class="ctx">YTD · Central bank demand sustained</div>
+        </div>
+        <div class="market-cell">
+          <div class="label">Intl. Equities</div>
+          <div class="value val-up">Outperforming</div>
+          <div class="ctx">YTD vs. U.S. · Diversification thesis</div>
+        </div>
+        <div class="market-cell">
+          <div class="label">Estate Exemption</div>
+          <div class="value val-up">$15M</div>
+          <div class="ctx">Per individual · OBBBA · No sunset</div>
+        </div>
+        <div class="market-cell">
+          <div class="label">RIA M&amp;A</div>
+          <div class="value val-up">$100B+</div>
+          <div class="ctx">First 5 weeks 2026 · Up 9% YoY</div>
+        </div>
+      </div>
+
+      <div class="bottom-line">
+        <p>Every story in this brief points to the same thing: the gap between advisors who are ahead of the conversation and those waiting to be asked is widening fast. Clients have questions about tariffs, estate changes, and what AI means for their money. The advisor who shows up with answers before they ask gets the referral. The one who waits gets replaced. Use these stories. Use the content angles. Get in front of it.</p>
+      </div>
+
+    </main>
+
+    <!-- ══════════ SIDEBAR ══════════ -->
+    <aside class="sidebar">
+
+      <div class="identity-card">
+        <div class="id-avatar">LM</div>
+        <div class="id-name">Lawain McNeil</div>
+        <div class="id-title">
+          Founder, Sherpa Systems, LLC<br>
+          Marketing &amp; AI Strategy<br>
+          Financial Services
+        </div>
+        <div class="id-contact">
+          <a class="id-link" href="https://lawainmcneil.com" target="_blank">lawainmcneil.com</a>
+          <a class="id-link" href="/cdn-cgi/l/email-protection#7814190f1911163814190f191116151b161d1114561b1715"><span class="__cf_email__" data-cfemail="e78b8690868e89a78b8690868e898a8489828e8bc984888a">[email&#160;protected]</span></a>
+        </div>
+      </div>
+
+      <div class="sb-focus">
+        <div class="sb-focus-label">This Issue's Focus</div>
+        <p>Five forces — markets, tech, estate law, compliance, and M&amp;A — all moving simultaneously. Every one has a direct practice implication. This brief surfaces the signal and gives you the content angle to use it.</p>
+      </div>
+
+      <div class="sidebar-module">
+        <div class="sb-label">Strategic Calls</div>
+        <div class="sb-call">
+          <div class="sb-call-label">Proactive beats reactive</div>
+          <div class="sb-call-text">Advisors who surface estate, compliance, and market questions before clients ask them will win 2026. The ones who wait will lose ground they won't get back.</div>
+        </div>
+        <div class="sb-call">
+          <div class="sb-call-label">The AI stack is being set now</div>
+          <div class="sb-call-text">The operating system consolidation is happening in real time. Which tools you choose in the next 12 months will define your efficiency floor for the next decade.</div>
+        </div>
+        <div class="sb-call">
+          <div class="sb-call-label">International diversification matters</div>
+          <div class="sb-call-text">With U.S. exceptionalism under pressure and international equities outperforming YTD, the argument for geographic concentration has weakened materially.</div>
+        </div>
+      </div>
+
+      <div class="sidebar-module">
+        <div class="sb-label">Worth Reading</div>
+        <div class="reading-item">
+          <div class="reading-title">AdvisorTech March 2026: The Operating System Race</div>
+          <div class="reading-source">Kitces.com · Michael Kitces</div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-title">2026 Estate Tax Update: What Changed and What to Do</div>
+          <div class="reading-source">Mercer Advisors · Planning Team</div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-title">SEC FY2026 Exam Priorities for RIAs</div>
+          <div class="reading-source">SEC.gov · Division of Examinations</div>
+        </div>
+      </div>
+
+      <div class="sidebar-module">
+        <div class="sb-label">Themes in Play</div>
+        <div class="theme-tags">
+          <span class="theme-tag">Trade Policy</span>
+          <span class="theme-tag">AI Adoption</span>
+          <span class="theme-tag">Estate Law</span>
+          <span class="theme-tag">Reg S-P</span>
+          <span class="theme-tag">RIA M&amp;A</span>
+          <span class="theme-tag">Intl. Equities</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="sb-issuenum">RA</div>
+        <div class="sb-issuenum-label">April 2026</div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-wordmark">
+      Lawain McNeil
+      <span>The McNeil Brief</span>
+      <span>lawainmcneil.com &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="711d100610181f311d100610181f1c121f14181d5f121e1c">[email&#160;protected]</a></span>
+    </div>
