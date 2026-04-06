@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Price Just Moved — The McNeil Brief: Field Edition</title>
+
+  <meta property="og:title" content="The McNeil Brief: Field Edition — Issue 002" />
+  <meta property="og:description" content="The Price Just Moved. Major roofing manufacturers raised prices April 15. Tariffs are hitting materials across every trade. Here's what to do this week." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://brief.lawainmcneil.com/edition-002/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The McNeil Brief: Field Edition — Issue 002" />
+  <meta name="twitter:description" content="The Price Just Moved. Tariffs hit materials across every trade. Here's what to do this week." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1a1a;
+      --ink-mid:   #3d3d3d;
+      --ink-light: #6b6b6b;
+      --rule:      #d4d0c8;
+      --bg:        #f5f2eb;
+      --bg-card:   #ede9e0;
+      --accent:    #b8372b;
+      --accent-dk: #8c2820;
+      --condensed: 'Barlow Condensed', sans-serif;
+      --serif:     'Source Serif 4', Georgia, serif;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-weight: 300;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      background: var(--ink);
+      margin: 0 -20px;
+      padding: 28px 28px 22px;
+    }
+
+    .masthead-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .brand {
+      font-family: var(--condensed);
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #f5f2eb;
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-family: var(--condensed);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .edition-tag {
+      font-family: var(--condensed);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(245,242,235,.4);
+      border: 1px solid rgba(245,242,235,.15);
+      padding: 4px 8px;
+      white-space: nowrap;
+    }
+
+    .dateline {
+      border-top: 1px solid rgba(245,242,235,.12);
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dateline-left {
+      font-family: var(--condensed);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(245,242,235,.45);
+    }
+
+    .issue-topic-head {
+      font-family: var(--condensed);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #f5f2eb;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      border-bottom: 3px solid var(--accent);
+      padding: 32px 0 24px;
+    }
+
+    .hero-kicker {
+      font-family: var(--condensed);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .hero-hed {
+      font-family: var(--condensed);
+      font-size: clamp(36px, 7vw, 52px);
+      font-weight: 800;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .hero-deck {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink-mid);
+      line-height: 1.55;
+      max-width: 560px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      border-top: 1px solid var(--rule);
+      padding: 28px 0;
+    }
+
+    .section-label {
+      font-family: var(--condensed);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 12px;
+    }
+
+    .section-hed {
+      font-family: var(--condensed);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .body-text {
+      font-size: 15.5px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
+    .body-text + .body-text {
+      margin-top: 12px;
+    }
+
+    .callout-box {
+      background: var(--bg-card);
+      border-left: 3px solid var(--accent);
+      padding: 14px 16px;
+      margin-top: 16px;
+    }
+
+    .callout-box p {
+      font-size: 14.5px;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    .callout-box strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ── TRADE CARDS ── */
+    .trade-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .trade-grid { grid-template-columns: 1fr; }
+    }
+
+    .trade-card {
+      background: var(--bg-card);
+      border-left: 3px solid var(--rule);
+      padding: 14px 16px;
+    }
+
+    .trade-card-label {
+      font-family: var(--condensed);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .trade-card p {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    /* ── NUMBER BLOCK ── */
+    .number-block {
+      background: var(--ink);
+      padding: 28px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-top: 4px;
+    }
+
+    .number-big {
+      font-family: var(--condensed);
+      font-size: clamp(48px, 10vw, 64px);
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .number-context {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(245,242,235,.75);
+      line-height: 1.6;
+      padding-top: 6px;
+    }
+
+    /* ── FOOTER ── */
+    .brief-footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-brand {
+      font-family: var(--condensed);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .footer-link {
+      font-family: var(--condensed);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer-link:hover { text-decoration: underline; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-top">
+      <div>
+        <div class="brand">The McNeil Brief</div>
+        <div class="brand-sub">Trade &amp; Home Services</div>
+      </div>
+      <div class="edition-tag">Field Edition</div>
+    </div>
+    <div class="dateline">
+      <span class="dateline-left">Week of April 6, 2026 &nbsp;·&nbsp; Issue 002</span>
+      <span class="issue-topic-head">The Price Just Moved</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-kicker">This week</p>
+    <h1 class="hero-hed">The Price<br>Just Moved</h1>
+    <p class="hero-deck">GAF, CertainTeed, and Atlas raised prices on shingles and roofing products April 15. Tariffs on steel and aluminum are hitting material costs across every trade. The contractors who know how to talk about this will close jobs the ones who don't will lose them to price confusion.</p>
+  </div>
+
+  <!-- THE SIGNAL -->
+  <div class="section">
+    <p class="section-label">The Signal</p>
+    <div class="body-text">Three of the largest roofing manufacturers in the country — GAF, CertainTeed, and Atlas — announced price increases of 5–8% on shingles, underlayment, and ventilation systems, effective April 15, 2026. Behind the increases: 50% tariffs on imported steel and aluminum that have been in effect since mid-2025, now fully working through the supply chain. Metal roofing costs are up 15–25% since 2024. Fasteners, flashing, drip edge — everything with metal in it costs more. This isn't just a roofing story. Every trade that touches materials sourced from steel, aluminum, or petroleum is dealing with the same compounding pressure.</div>
+    <div class="callout-box">
+      <p><strong>The timing matters.</strong> The Associated General Contractors of America updated their Tariff Resource Center on April 2 with a clear message: update your contracts now, or absorb costs you can't pass along once the project is signed. Proposals left open 30, 60, 90 days are now a liability.</p>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="section">
+    <p class="section-label">Why It Matters</p>
+    <div class="body-text">Homeowners are going to notice the price. They're going to call around, compare quotes, and wonder why your number looks different from what they expected. The contractors who lose those conversations are the ones who can't explain it. The ones who win are the ones who explain it first — before the homeowner has a chance to be confused by it.</div>
+    <div class="body-text">There is also a second-order issue: fixed-price proposals written before tariff increases hit are financial liabilities. A quote valid for 60 days in this environment is a gamble. Courts don't care that steel got more expensive after you signed — they enforce what the contract says.</div>
+  </div>
+
+  <!-- THE MOVE -->
+  <div class="section">
+    <p class="section-label">The Move</p>
+    <p class="section-hed">Shorten Your Quote Window. Then Explain Why.</p>
+    <div class="body-text">This week: set your proposal validity to 10 days or fewer, and add a plain-language line explaining material cost volatility. Not a disclaimer — a sentence that sounds like a professional talking to a client. Something like: <em>"Material pricing is moving week to week right now because of steel and aluminum tariffs. This quote reflects today's costs. I'd recommend moving forward this season before prices adjust again."</em></div>
+    <div class="body-text">That's not a pressure tactic. That's true. And it closes jobs, because it gives the homeowner a real reason to act — not a manufactured one.</div>
+    <div class="callout-box">
+      <p><strong>Bonus move:</strong> If you have homeowners who have been sitting on a quote from February or March, call them this week. Material costs have moved since then. Get them on the calendar before the next round of increases works through.</p>
+    </div>
+  </div>
+
+  <!-- HOMEOWNER MINDSET -->
+  <div class="section">
+    <p class="section-label">Homeowner Mindset</p>
+    <div class="body-text">Homeowners are watching tariff news. They've heard prices are going up on everything. But they're not sure what it means for their specific project — they're waiting for someone to connect the dots. The contractor who calls and says <em>"I wanted to give you a heads-up before this hits your quote"</em> isn't just closing a job. They're becoming the kind of person the homeowner calls first, every time, forever.</div>
+    <div class="body-text">Most homeowners would rather lock in a price today than find out in two months it costs 8% more. Give them the chance to make that decision. They'll thank you for it.</div>
+  </div>
+
+  <!-- IN YOUR WORLD -->
+  <div class="section">
+    <p class="section-label">In Your World</p>
+    <div class="trade-grid">
+
+      <div class="trade-card">
+        <div class="trade-card-label">Roofers</div>
+        <p>GAF, CertainTeed, and Atlas price increases are locked in at April 15. Shorten proposal windows to 7–10 days. Call any open quotes from Q1 now — you may need to reprice before they book.</p>
+      </div>
+
+      <div class="trade-card">
+        <div class="trade-card-label">Window &amp; Door Installers</div>
+        <p>Aluminum frames and hardware are directly tariff-affected. If your supplier hasn't announced price adjustments yet, ask. The increases are coming. Build cost escalation language into contracts now.</p>
+      </div>
+
+      <div class="trade-card">
+        <div class="trade-card-label">Pool &amp; Lawn</div>
+        <p>Pool equipment — pumps, heaters, steel fittings — is getting more expensive. Spring is your best selling season. Communicate pricing urgency honestly: book now or pay more in June.</p>
+      </div>
+
+      <div class="trade-card">
+        <div class="trade-card-label">Hardie Siding &amp; Custom Wood</div>
+        <p>Hardie board itself isn't the exposure — fasteners, flashing, and trim components are. Review your material quotes before sending new bids. The price you got in January may not hold.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- THE NUMBER -->
+  <div class="section">
+    <p class="section-label">The Number</p>
+    <div class="number-block">
+      <span class="number-big">8%</span>
+      <span class="number-context">Announced price increase on all residential roofing products from CertainTeed, effective April 15, 2026. GAF and Atlas matched it. That's before any additional tariff escalation. If your quote from last month doesn't reflect this, it's already underwater.</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="brief-footer">
+    <span class="footer-brand">The McNeil Brief &mdash; Field Edition</span>
+    <a class="footer-link" href="https://lawainmcneil.com">lawainmcneil.com</a>
+  </div>
+
+</div>
+</body>
+</html>
