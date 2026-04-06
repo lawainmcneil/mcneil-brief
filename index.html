@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The McNeil Brief: Field Edition</title>
-  <meta name="description" content="Weekly marketing intelligence for trade and home service businesses. By Lawain McNeil." />
+  <title>The McNeil Brief</title>
+  <meta name="description" content="Weekly marketing intelligence by Lawain McNeil. Two editions: Trade & Home Services and Financial Advisors." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,29 +63,7 @@
       font-size: 26px;
       color: var(--white);
       line-height: 1.1;
-      margin-bottom: 2px;
-    }
-
-    .masthead-sub {
-      font-size: 13px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 1rem;
-    }
-
-    .masthead-meta {
-      margin-bottom: 1rem;
-    }
-
-    .edition-tag {
-      display: inline-block;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 3px 8px;
-      font-weight: 400;
+      margin-bottom: 6px;
     }
 
     .masthead-desc {
@@ -96,35 +74,44 @@
       max-width: 440px;
     }
 
-    /* ── Issue bar ── */
-    .issue-bar {
-      background: var(--ivory-mid);
-      border-bottom: 1px solid var(--ivory-dark);
-      padding: 0.6rem 1.5rem;
+    /* ── Edition sections ── */
+    .edition-section {
+      padding: 0 1.5rem 2rem;
     }
 
-    .issue-bar-label {
+    .edition-section + .edition-section {
+      border-top: 2px solid var(--ivory-dark);
+      padding-top: 2rem;
+    }
+
+    .edition-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 1.25rem 0 1rem;
+      border-bottom: 1px solid var(--ivory-dark);
+    }
+
+    .edition-label {
       font-size: 10px;
-      letter-spacing: 0.16em;
+      font-weight: 500;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--ink-light);
+    }
+
+    .edition-tag {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      background: var(--navy);
+      padding: 3px 8px;
       font-weight: 500;
     }
 
-    /* ── Archive list ── */
-    .archive {
-      padding: 1.5rem;
-    }
-
-    .archive-heading {
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      font-weight: 400;
-      margin-bottom: 1rem;
-    }
-
+    /* ── Issue items ── */
     .issue-item {
       display: flex;
       justify-content: space-between;
@@ -134,10 +121,6 @@
       text-decoration: none;
       color: inherit;
       transition: background 0.12s;
-    }
-
-    .issue-item:first-of-type {
-      border-top: 1px solid var(--ivory-dark);
     }
 
     .issue-item:hover {
@@ -181,7 +164,6 @@
 
     .issue-item:hover .issue-arrow { color: var(--navy); }
 
-    /* Latest badge */
     .latest-badge {
       display: inline-block;
       background: var(--navy);
@@ -203,7 +185,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .footer-brand {
@@ -224,7 +206,7 @@
     @media (max-width: 480px) {
       .masthead { padding: 1.5rem 1.25rem; }
       .masthead-name { font-size: 22px; }
-      .archive { padding: 1.5rem 1.25rem; }
+      .edition-section { padding: 0 1.25rem 2rem; }
       .brief-footer { padding: 10px 1.25rem; }
     }
   </style>
@@ -232,22 +214,19 @@
 <body>
 <div class="page">
 
+  <!-- MASTHEAD -->
   <div class="masthead">
     <p class="masthead-byline">Lawain McNeil</p>
     <h1 class="masthead-name">The McNeil Brief</h1>
-    <p class="masthead-sub">/ Field Edition</p>
-    <div class="masthead-meta">
+    <p class="masthead-desc">Two editions. One for trade and home service businesses. One for financial advisors and RIAs. Plainspoken. To the point.</p>
+  </div>
+
+  <!-- TRADE & HOME SERVICES -->
+  <div class="edition-section">
+    <div class="edition-header">
+      <span class="edition-label">Field Edition</span>
       <span class="edition-tag">Trade &amp; Home Services</span>
     </div>
-    <p class="masthead-desc">Weekly marketing intelligence for trade and home service businesses. Plainspoken. To the point. One signal, one move, one number.</p>
-  </div>
-
-  <div class="issue-bar">
-    <span class="issue-bar-label">All Issues</span>
-  </div>
-
-  <div class="archive">
-    <p class="archive-heading">Field Edition &mdash; 2026</p>
 
     <a class="issue-item" href="edition-002/">
       <div class="issue-left">
@@ -266,11 +245,28 @@
       </div>
       <span class="issue-arrow">→</span>
     </a>
-
   </div>
 
+  <!-- FINANCIAL ADVISORS -->
+  <div class="edition-section">
+    <div class="edition-header">
+      <span class="edition-label">Research Edition</span>
+      <span class="edition-tag">Financial Advisors &amp; RIAs</span>
+    </div>
+
+    <a class="issue-item" href="issues/2026-04-06/">
+      <div class="issue-left">
+        <p class="issue-number">April 6, 2026 <span class="latest-badge">Latest</span></p>
+        <p class="issue-topic">Markets, Estate Law &amp; the AI Stack</p>
+        <p class="issue-date">Financial Advisor Research Edition</p>
+      </div>
+      <span class="issue-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
   <div class="brief-footer">
-    <span class="footer-brand">The McNeil Brief &mdash; Field Edition</span>
+    <span class="footer-brand">The McNeil Brief</span>
     <a class="footer-link" href="https://lawainmcneil.com">lawainmcneil.com</a>
   </div>
 
