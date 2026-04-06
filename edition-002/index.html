@@ -281,13 +281,17 @@
     /* ── FOOTER ── */
     .brief-footer {
       border-top: 1px solid var(--ivory-dark);
-      padding-top: 24px;
+      padding-top: 20px;
       margin-top: 8px;
+    }
+
+    .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 8px;
+      margin-bottom: 16px;
     }
 
     .footer-brand {
@@ -310,6 +314,16 @@
     }
 
     .footer-link:hover { text-decoration: underline; }
+
+    .footer-disclosure {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--ink-light);
+      line-height: 1.65;
+      border-top: 1px solid var(--ivory-dark);
+      padding-top: 14px;
+    }
 
     strong { font-weight: 500; }
     em { font-style: italic; }
@@ -413,8 +427,13 @@
 
   <!-- FOOTER -->
   <div class="brief-footer">
-    <span class="footer-brand">The McNeil Brief &mdash; Field Edition</span>
-    <a class="footer-link" href="https://lawainmcneil.com">lawainmcneil.com</a>
+    <div class="footer-top">
+      <span class="footer-brand">The McNeil Brief &mdash; Field Edition</span>
+      <a class="footer-link" href="https://lawainmcneil.com">lawainmcneil.com</a>
+    </div>
+    <div class="footer-disclosure">
+      &copy; 2026 Lawain McNeil. All rights reserved. The McNeil Brief is an independent editorial publication produced by Lawain McNeil / Sherpa Systems, LLC. Content is for informational purposes only and does not constitute business, legal, or financial advice. Market and pricing data referenced herein is sourced from publicly available industry reports and news sources and is believed to be accurate as of the date of publication. Sherpa Systems, LLC is not affiliated with any manufacturer, supplier, or trade association mentioned in this publication. Reproduction or redistribution without written permission is prohibited.
+    </div>
   </div>
 
 </div>
