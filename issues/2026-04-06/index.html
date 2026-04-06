@@ -765,13 +765,111 @@ body {
   font-style: italic;
 }
 
+/* ─── PRINT BUTTON (screen only) ─── */
+.print-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #0E1A2B;
+  color: #C9A84C;
+  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border: 1px solid rgba(201,168,76,.4);
+  cursor: pointer;
+  z-index: 100;
+  text-decoration: none;
+  display: inline-block;
+}
+.print-btn:hover {
+  background: #162236;
+  color: #E2C06A;
+}
+
+/* ─── PRINT STYLESHEET ─── */
 @media print {
-  body { background: white; }
-  .page { box-shadow: none; margin: 0; max-width: 100%; }
+  /* Page setup */
+  @page {
+    size: letter;
+    margin: 0.5in 0.5in 0.6in 0.5in;
+  }
+
+  /* Hide screen-only elements */
+  .print-btn { display: none !important; }
+  .compliance { display: none !important; }
+
+  /* Remove screen chrome */
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  .page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Keep the gold spine */
+  .page::before {
+    background: #C9A84C !important;
+    print-color-adjust: exact;
+  }
+
+  /* Prevent orphaned story cards */
+  .story-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Prevent orphaned section heads */
+  .s-head {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Keep dispatch and number boxes together */
+  .dispatch-box,
+  .number-box,
+  .bottom-line {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Force background colors to print */
+  .masthead,
+  .sidebar,
+  .dispatch-box,
+  .number-box,
+  .bottom-line,
+  .cat-badge,
+  .story-card {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Sidebar stays dark */
+  .sidebar {
+    background: #0E1A2B !important;
+  }
+
+  /* Copper rule stays gold */
+  .copper-rule {
+    background: #C9A84C !important;
+  }
 }
 </style>
 </head>
 <body>
+
+<a class="print-btn" onclick="window.print(); return false;" href="#">⎙ &nbsp;Print / Save PDF</a>
 
 <div class="page">
 
