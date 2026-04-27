@@ -1,1 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The McNeil Brief | April 26, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #D9D1C0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #1C2535;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrapper { max-width: 1180px; margin: 0 auto; padding: 24px 24px 48px; }
 
+  /* MASTHEAD */
+  .masthead { background: #1C2535; color: #F5F1EA; }
+  .masthead .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px; border-bottom: 1px solid rgba(201,168,76,0.25);
+  }
+  .masthead .topbar .left {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #C9A84C;
+    font-size: 11px; letter-spacing: 3px; font-weight: 600; text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .masthead .topbar .rule {
+    flex: 1; height: 1px; background: #C9A84C; margin: 0 18px; opacity: 0.7;
+  }
+  .masthead .topbar .badge {
+    border: 1px solid #C9A84C; color: #C9A84C;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px; letter-spacing: 2.5px; padding: 6px 12px;
+    text-transform: uppercase; font-weight: 600;
+  }
+  .masthead .body {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 38px 36px 44px; position: relative; overflow: hidden;
+  }
+  .masthead .left-block { z-index: 2; }
+  .masthead .left-block .pretitle {
+    font-family: 'Georgia', serif;
+    color: #7A8A9A; font-size: 38px; font-weight: 400; letter-spacing: 4px;
+    text-transform: uppercase; line-height: 1; margin-bottom: 4px;
+  }
+  .masthead .left-block .title {
+    color: #FFFFFF; font-weight: 800; font-size: 88px; line-height: 0.92;
+    letter-spacing: -2px; margin-bottom: 16px; font-family: 'Georgia', serif;
+  }
+  .masthead .left-block .tagline {
+    color: #C9A84C; font-style: italic; font-size: 18px;
+    font-family: 'Georgia', serif;
+  }
+  .masthead .right-block {
+    text-align: right; position: relative; z-index: 2; min-width: 320px;
+  }
+  .masthead .right-block .meta {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: #C9A84C; line-height: 2; margin-bottom: 10px;
+  }
+  .masthead .right-block .meta .label { color: #7A8A9A; margin-right: 6px; }
+  .masthead .watermark {
+    font-family: 'Georgia', serif;
+    font-size: 110px; font-weight: 800; color: #2A3548;
+    letter-spacing: -3px; line-height: 1; margin-top: 6px;
+  }
+
+  /* THEME BANNER */
+  .theme-banner {
+    background: #1C2535; color: #F5F1EA;
+    padding: 22px 36px;
+    font-family: 'Georgia', serif; font-style: italic; font-size: 22px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .theme-banner .gold { color: #C9A84C; font-weight: 700; font-style: italic; }
+
+  /* BODY GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .main { background: #F5F1EA; padding: 32px 34px; }
+  .sidebar { background: #EDE8DF; padding: 26px 22px; }
+
+  /* INTRO */
+  .intro {
+    border-left: 3px solid #C9A84C;
+    padding: 6px 0 6px 18px;
+    margin-bottom: 30px;
+    font-size: 16.5px; line-height: 1.65;
+  }
+  .intro strong { color: #1C2535; }
+
+  /* CATEGORY HEADER */
+  .cat {
+    display: flex; align-items: center;
+    margin: 30px 0 18px;
+  }
+  .cat-label {
+    color: #C9A84C; font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    flex-shrink: 0; padding-right: 14px;
+  }
+  .cat-rule { flex: 1; height: 1px; background: #C9A84C; opacity: 0.6; }
+
+  /* STORY CARD */
+  .story {
+    background: #FDFCF9;
+    border-left: 4px solid #C9A84C;
+    padding: 18px 22px 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 0 rgba(28,37,53,0.05);
+  }
+  .story-head {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .story-num {
+    color: #C9A84C; font-weight: 800; font-size: 14px;
+    font-family: 'Georgia', serif; letter-spacing: 1px;
+  }
+  .story-tag {
+    background: #C9A84C; color: #FFFFFF;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 9.5px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase;
+    padding: 4px 9px; border-radius: 1px;
+  }
+  .story-headline {
+    font-size: 20px; font-weight: 700; color: #1C2535; line-height: 1.28;
+    margin-bottom: 4px; display: block;
+    font-family: 'Georgia', serif;
+  }
+  .story-headline:hover { color: #2A3548; text-decoration: underline; text-decoration-color: #C9A84C; }
+  .story-source {
+    color: #7A8A9A; font-size: 12px; font-style: italic; margin-bottom: 10px;
+    font-family: 'Georgia', serif;
+  }
+  .story-body { font-size: 15px; line-height: 1.6; color: #1C2535; margin-bottom: 14px; }
+  .angle {
+    background: #EDE8DF; border-left: 3px solid #C9A84C;
+    padding: 12px 16px; margin-top: 10px;
+  }
+  .angle-label {
+    color: #C9A84C; font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 9.5px; letter-spacing: 2.5px; font-weight: 700; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .angle-body { font-size: 14px; line-height: 1.55; color: #1C2535; }
+
+  /* SIDEBAR */
+  .author-card { display: flex; align-items: center; margin-bottom: 26px; gap: 14px; }
+  .avatar {
+    width: 54px; height: 54px; border-radius: 50%;
+    background: #C9A84C; color: #1C2535;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Georgia', serif; font-weight: 800; font-size: 22px; letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .author-meta { font-size: 13px; line-height: 1.4; }
+  .author-meta .name { font-weight: 700; color: #1C2535; }
+  .author-meta .title { color: #7A8A9A; font-style: italic; font-size: 12px; }
+  .author-meta .links { color: #C9A84C; font-size: 11.5px; margin-top: 2px; font-family: 'Helvetica Neue', Arial, sans-serif; letter-spacing: 1px; }
+
+  .focus-box {
+    background: #1C2535; color: #F5F1EA;
+    padding: 18px 18px 20px; margin-bottom: 24px;
+  }
+  .focus-label {
+    color: #C9A84C; font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px; letter-spacing: 2.5px; font-weight: 700; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .focus-body { font-size: 13.5px; line-height: 1.6; color: #F5F1EA; }
+
+  .calls .call-item { margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid rgba(28,37,53,0.1); }
+  .calls .call-item:last-child { border-bottom: none; }
+  .call-label {
+    color: #C9A84C; font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px; letter-spacing: 2.5px; font-weight: 700; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .call-body { font-size: 13px; line-height: 1.5; color: #1C2535; }
+
+  /* FOOTER */
+  .footer {
+    background: #1C2535; color: #F5F1EA;
+    border-top: 3px solid #C9A84C;
+    padding: 22px 32px;
+    margin-top: 36px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 28px;
+  }
+  .footer .left {
+    color: #C9A84C; font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px; letter-spacing: 2px; font-weight: 600;
+    flex-shrink: 0;
+  }
+  .footer .right {
+    color: #7A8A9A; font-size: 11px; line-height: 1.55;
+    text-align: right; max-width: 540px;
+  }
+
+  @media (max-width: 880px) {
+    .grid { grid-template-columns: 1fr; }
+    .masthead .body { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .masthead .right-block { text-align: left; }
+    .masthead .left-block .title { font-size: 64px; }
+    .masthead .watermark { font-size: 80px; }
+    .footer { flex-direction: column; }
+    .footer .right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<header class="masthead">
+  <div class="topbar">
+    <div class="left">Financial Advisor Research Edition</div>
+    <div class="rule"></div>
+    <div class="badge">Research Edition</div>
+  </div>
+  <div class="body">
+    <div class="left-block">
+      <div class="pretitle">The McNeil</div>
+      <div class="title">BRIEF</div>
+      <div class="tagline">Intelligence for advisors who are paying attention.</div>
+    </div>
+    <div class="right-block">
+      <div class="meta">
+        <div><span class="label">Issue</span> April 26, 2026</div>
+        <div><span class="label">For</span> Financial Advisors &amp; RIAs</div>
+        <div><span class="label">Inside</span> 10 Stories</div>
+      </div>
+      <div class="watermark">04&middot;26</div>
+    </div>
+  </div>
+</header>
+
+<div class="theme-banner">
+  This week the industry crossed a quiet line: <span class="gold">AI is no longer a feature in your tech stack — it is the stack.</span>
+</div>
+
+<div class="grid">
+  <main class="main">
+
+    <div class="intro">
+      Three forces collided this week. <strong>RIA M&amp;A hit a record opening quarter</strong>, with average deal size now north of $1.2 billion and consolidators paying up for scale. <strong>AI moved from sidecar to operating system</strong>, with Citi launching a client-facing avatar, Wealth.com raising $65 million, and at least one upstart announcing it will eliminate its advisor workforce entirely. And <strong>Washington queued up a regulatory month that will reshape onboarding, custody, and what you put in 401(k)s</strong>. The advisors who win the next twelve months are the ones who turn this noise into clear client conversations now — before the rules, the buyers, and the bots get there first.
+    </div>
+
+    <!-- INDUSTRY M&A -->
+    <section>
+      <div class="cat">
+        <div class="cat-label">Industry M&amp;A &amp; Recruiting</div>
+        <div class="cat-rule"></div>
+      </div>
+
+      <article class="story">
+        <div class="story-head">
+          <span class="story-num">01</span>
+          <span class="story-tag">M&amp;A</span>
+        </div>
+        <a class="story-headline" href="https://www.financial-planning.com/news/lpls-mariner-advisor-network-deal-fuels-already-hot-year-for-ria-m-a" target="_blank" rel="noopener">LPL and Private Advisor Group buy Mariner Advisor Network — 367 advisors, $31B in assets</a>
+        <div class="story-source">Financial Planning &middot; Industry M&amp;A</div>
+        <div class="story-body">
+          The largest advisor-network transaction in recent memory hands LPL the affiliation chassis Mariner had spent years building. It is also a tell: the breakaway and tuck-in market is now so attractive that LPL is willing to pay for the funnel, not just the firms inside it. Expect more recruiting platforms to be packaged and sold as standalone businesses.
+        </div>
+        <div class="angle">
+          <div class="angle-label">Content Angle</div>
+          <div class="angle-body">Write a client note titled "Why Your Advisor's Firm Just Got Bigger (And Why That Matters to You)" — explain consolidation in plain language and reassure clients that their plan, not the parent company, is what governs outcomes.</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-head">
+          <span class="story-num">02</span>
+          <span class="story-tag">M&amp;A Data</span>
+        </div>
+        <a class="story-headline" href="https://www.thedailyupside.com/advisor/industry-news/average-ria-deal-size-surges-to-1-2-billion-in-early-26/" target="_blank" rel="noopener">Average RIA deal size surges to $1.2 billion in early 2026 — 93 deals in Q1 ties the record</a>
+        <div class="story-source">The Daily Upside &middot; Industry M&amp;A</div>
+        <div class="story-body">
+          Average AUM per acquisition has climbed from $819 million in 2023 to nearly $1.2 billion this quarter. Translation: buyers are skipping the small shops and writing larger checks for established firms with clean data, niche expertise, and next-gen depth. If you're a $200M shop hoping to sell at the top, the ladder just got pulled up.
+        </div>
+        <div class="angle">
+          <div class="angle-label">Content Angle</div>
+          <div class="angle-body">Publish a short LinkedIn post: "Three things buyers will pay for in 2026 (and three things they won't)." Use it to start succession conversations with founders in your network.</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-head">
+          <span class="story-num">03</span>
+          <span class="story-tag">Super-Ensemble</span>
+        </div>
+        <a class="story-headline" href="https://www.wealthmanagement.com/ria-news/ria-leaders-wirehouse-breakaways-expanded-services-more-m-a-to-dominate-26" target="_blank" rel="noopener">Hightower's Signature Wealth adds a $3.2B Massachusetts super-ensemble as breakaways accelerate</a>
+        <div class="story-source">WealthManagement.com &middot; Recruiting</div>
+        <div class="story-body">
+          The wirehouse-to-RIA migration that pundits have called "imminent" for a decade is now mechanical. Independent channels are growing headcount at roughly 5% annually while wirehouses shrink at 1%. Hightower's super-ensemble model — large multi-advisor teams operating under a unified brand — is becoming the dominant landing pad for breakaways with $1B+ books.
+        </div>
+        <div class="angle">
+          <div class="angle-label">Content Angle</div>
+          <div class="angle-body">Write a tear sheet: "What Independence Actually Buys You — A Breakaway's Real Math." Useful for recruiting other advisors and for clients who quietly wonder why so many of their friends' advisors keep changing logos.</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- TECHNOLOGY / AI -->
+    <section>
+      <div class="cat">
+        <div class="cat-label">Technology &amp; AI</div>
+        <div class="cat-rule"></div>
+      </div>
+
+      <article class="story">
+        <div class="story-head">
+          <span class="story-num">04</span>
+          <span class="story-tag">AI / Client UX</span>
+        </div>
+        <a class="story-headline" href="https://www.wealthmanagement.com/artificial-intelligence/citi-brings-google-powered-ai-avatar-to-wealth-clients" target="_blank" rel="noopener">Citi unveils Google-powered AI avatar "Citi Sky" — and a note-taker called CitiScribe</a>
+        <div class="story-source">WealthManagement.com &middot; Wealthtech</div>
+        <div class="story-body">
+          Citi just shipped the first credible client-facing AI avatar from a global wealth manager. Citigold clients get conversational market and planning guidance through a Google DeepMind-powered persona this summer. Meanwhile CitiScribe — an AI meeting note-taker — is already deployed across all North American Citi advisors. The arms race for the client's attention now includes a non-human counterpart, and your clients will start asking why your firm doesn't have one.
+        </div>
+        <div class="angle">
+          <div class="angle-label">Content Angle</div>
+          <div class="angle-body">Send a client email titled "When Your Bank's Chatbot Knows More Than Your Advisor" — explain the difference between an AI that answers questions and a human who designs your plan, then invite a conversation.</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-head">
+          <span class="story-num">05</span>
+          <span class="story-tag">WealthTech Funding</span>
+        </div>
+        <a class="story-headline" href="https://www.wealthmanagement.com/artificial-intelligence/wealth.com-secures-65m-to-expand-ai-estate-platform" target="_blank" rel="noopener">Wealth.com closes $65M Series B for AI estate and tax platform — claims firms managing $15T use it</a>
+        <div class="story-source">WealthManagement.com &middot; Funding</div>
+        <div class="story-body">
+          Estate planning has been the slowest-moving piece of the advisor stack for thirty years. That is changing fast. Wealth.com's raise validates a thesis the industry has been circling for two years: AI is the only viable way to scale estate review, beneficiary tracking, and document drafting across thousands of households. If you're not running annual estate audits, your competitors will be — automatically.
+        </div>
+        <div class="angle">
+          <div class="angle-label">Content Angle</div>
+          <div class="angle-body">Build a one-page checklist: "10 Things Your Estate Plan Should Be Reviewed For Every Year." Send it to every household over $1M in net worth on your book.</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-head">
+          <span class="story-num">06</span>
+          <span class="story-tag">AdvisorTech</span>
+        </div>
+        <a class="story-headline" href="https://www.kitces.com/blog/the-latest-in-financial-advisortech-april-2026-wealthbox-ai-agents-tools-jump-rightcapital-wealthstream/" target="_blank" rel="noopener">Kitces' April AdvisorTech roundup: AI agents land in Wealthbox, Jump, RightCapital, Wealthstream</a>
+        <div class="story-source">Kitces.com &middot; AdvisorTech</div>
+        <div class="story-body">
+          Michael Kitces' monthly map confirms what every demo this spring has signaled: agentic AI — software that doesn't just suggest, but acts — is now the default product roadmap across CRM, planning, and meeting tools. Range is openly planning to eliminate its advisor workforce. The honest question for every firm right now is no longer "should we adopt AI" but "which workflows do we hand over first, and to whom."
+        </div>
+        <div class="angle">
+          <div class="angle-label">Content Angle</div>
+          <div class="angle-body">Write a piece called "What I'm Letting AI Do — and What I'm Not." Be specific. Clients want to know whether their advisor is using these tools well or hiding from them.</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- REGULATORY / COMPLIANCE -->
+    <section>
+      <div class="cat">
+        <div class="cat-label">Regulatory &amp; Compliance</div>
+        <div class="cat-rule"></div>
+      </div>
+
+      <article class="story">
+        <div class="story-head">
+          <span class="story-num">07</span>
+          <span class="story-tag">SEC</span>
+        </div>
+        <a class="story-headline" href="https://www.plantemoran.com/explore-our-thinking/insight/2026/01/navigating-secs-2026-examination-priorities-for-investment-advisers" target="_blank" rel="noopener">SEC's mega-month: Customer ID rule, custody amendments, and a crypto framework all queued for April</a>
+        <div class="story-source">Plante Moran / SEC &middot; Regulatory</div>
+        <div class="story-body">
+          The Customer Identification Program rule is heading for final action this month, custody rule amendments are slated for proposed rulemaking, and a crypto investment-product framework is on the same calendar. RIAs of every size will need new onboarding workflows, identity verification vendors, and updated written supervisory procedures within the next two quarters. If your compliance team has not seen the calendar yet, this is your nudge.
+        </div>
+        <div class="angle">
+          <div class="angle-label">Content Angle</div>
+          <div class="angle-body">Send a one-page advisor-to-client memo: "Why You'll See New Forms From Us This Year — And What's Behind Them." Position the new rules as a benefit, not a burden.</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-head">
+          <span class="story-num">08</span>
+          <span class="story-tag">Cybersecurity</span>
+        </div>
+        <a class="story-headline" href="https://www.financial-planning.com/news/cyberattack-on-client-data-lands-mercer-in-federal-lawsuit" target="_blank" rel="noopener">Mercer Advisors hit by ShinyHunters — class-action filed as Reg S-P deadline looms for smaller firms</a>
+        <div class="story-source">Financial Planning &middot; Cybersecurity</div>
+        <div class="story-body">
+          Mercer was given 48 hours to pay or watch 5.7 million client records hit the dark web. A class-action followed days later. With Reg S-P's smaller-entity compliance deadline arriving June 3, this case will be a template for how plaintiffs argue "reasonable safeguards." Expect every RIA cyber policy to be re-priced this summer, and expect clients to start asking pointed questions.
+        </div>
+        <div class="angle">
+          <div class="angle-label">Content Angle</div>
+          <div class="angle-body">Publish "Five Questions to Ask Your Advisor About Their Cybersecurity." Beat the breach headlines to your clients with a proactive, plain-English explanation.</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- TAX / RETIREMENT -->
+    <section>
+      <div class="cat">
+        <div class="cat-label">Tax, Retirement &amp; Planning</div>
+        <div class="cat-rule"></div>
+      </div>
+
+      <article class="story">
+        <div class="story-head">
+          <span class="story-num">09</span>
+          <span class="story-tag">Retirement / DOL</span>
+        </div>
+        <a class="story-headline" href="https://www.dol.gov/newsroom/releases/ebsa/ebsa20260330" target="_blank" rel="noopener">DOL proposes landmark rule to put alternative investments in 401(k) plans</a>
+        <div class="story-source">U.S. Department of Labor &middot; Retirement</div>
+        <div class="story-body">
+          The proposed rule gives plan fiduciaries an actual framework — performance, fees, liquidity, valuation, complexity — for evaluating private equity, private credit, and real assets inside defined contribution plans. This will not happen overnight, but it will reshape what "diversified" means inside a 401(k) over the next decade. Plan-advisor practices in particular should be on this now.
+        </div>
+        <div class="angle">
+          <div class="angle-label">Content Angle</div>
+          <div class="angle-body">For plan-sponsor clients, draft a memo: "What the DOL's New Alternatives Rule Could Mean for Your Plan." For retail clients, write "Private Markets Are Coming to Your 401(k) — Here's What to Know."</div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="story-head">
+          <span class="story-num">10</span>
+          <span class="story-tag">Estate &amp; Tax</span>
+        </div>
+        <a class="story-headline" href="https://www.merceradvisors.com/insights/trust-estate/estate-tax-exemption-2026-changes-still-need-2025-planning/" target="_blank" rel="noopener">The OBBBA reset: $15M estate exemption is now permanent — and most clients' plans assume the old sunset</a>
+        <div class="story-source">Mercer Advisors / PwC &middot; Tax Planning</div>
+        <div class="story-body">
+          The One Big Beautiful Bill Act locked the unified estate and gift exemption at $15M per person ($30M per couple), permanently indexed for inflation. Annual exclusion is $19,000 per recipient. The trap: nearly every estate plan written between 2020 and 2024 was built around the now-defunct sunset and is structurally outdated. Trusts are mistuned, gifts are misallocated, and step-up calculations are wrong.
+        </div>
+        <div class="angle">
+          <div class="angle-label">Content Angle</div>
+          <div class="angle-body">Run a 30-day campaign — a client letter, a webinar, and a one-on-one outreach list — built around the prompt "Has your estate plan been re-read since the law changed?" This is the single highest-conversion content topic in your library this year.</div>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <aside class="sidebar">
+
+    <div class="author-card">
+      <div class="avatar">LM</div>
+      <div class="author-meta">
+        <div class="name">Lawain McNeil</div>
+        <div class="title">Founder, Sherpa Systems</div>
+        <div class="links">lawainmcneil.com</div>
+      </div>
+    </div>
+
+    <div class="focus-box">
+      <div class="focus-label">This Issue's Focus</div>
+      <div class="focus-body">
+        Three things you have to internalize this week. Buyers are paying record prices for scale, not for promise — small firms without a niche are no longer in the auction. AI has moved from "tool you adopt" to "operating layer your clients can feel," and Citi's avatar will not be the last one. And the SEC's April calendar will reshape onboarding, custody, and crypto inside the next two quarters. Plan accordingly.
+      </div>
+    </div>
+
+    <div class="calls">
+      <div class="call-item">
+        <div class="call-label">Act Now</div>
+        <div class="call-body">Audit your client identification and onboarding workflow against the incoming CIP rule. Most RIAs will need a vendor decision before Q3.</div>
+      </div>
+      <div class="call-item">
+        <div class="call-label">Client Opportunity</div>
+        <div class="call-body">Run an estate plan re-read campaign on the OBBBA reset. Every client over $3M in net worth needs a refreshed memo this quarter.</div>
+      </div>
+      <div class="call-item">
+        <div class="call-label">Content Priority</div>
+        <div class="call-body">Publish your firm's "AI policy in plain English." Tell clients what you let AI do, what you don't, and why. Trust premium grows when you name it first.</div>
+      </div>
+      <div class="call-item">
+        <div class="call-label">Watch Closely</div>
+        <div class="call-body">Reg S-P smaller-entity deadline (June 3) plus the Mercer class-action will set the new floor for "reasonable safeguards." Cyber insurance pricing will follow.</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="left">Lawain McNeil &nbsp;|&nbsp; lawainmcneil.com</div>
+  <div class="right">
+    The McNeil Brief is a curated intelligence brief for financial advisors and RIAs. Editorial commentary reflects the author's views and is not investment, legal, or tax advice. Headlines link to publicly available reporting; readers should verify facts and consult appropriate counsel before acting. &copy; 2026 Lawain McNeil.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
