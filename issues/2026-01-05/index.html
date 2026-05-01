@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The McNeil Brief — May 1, 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #D9D1C0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #1C2535;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #B8922A; }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 60px;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    background: #1C2535;
+    color: #F5F1EA;
+    padding: 0;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  }
+  .masthead-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 36px;
+    border-bottom: 1px solid rgba(201,168,76,0.35);
+    gap: 18px;
+  }
+  .topbar-left {
+    color: #C9A84C;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 600;
+    flex: 0 0 auto;
+  }
+  .topbar-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(201,168,76,0.55), rgba(201,168,76,0));
+    margin: 0 16px;
+  }
+  .topbar-badge {
+    border: 1px solid #C9A84C;
+    color: #C9A84C;
+    padding: 6px 14px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .masthead-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 36px 36px 40px;
+    position: relative;
+  }
+  .masthead-left {
+    max-width: 70%;
+  }
+  .brand-the {
+    color: #7A8A9A;
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0 0 4px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  .brand-mcneil {
+    color: #7A8A9A;
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0 0 6px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  .brand-brief {
+    color: #FFFFFF;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 88px;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+  }
+  .brand-tagline {
+    color: #C9A84C;
+    font-style: italic;
+    font-size: 17px;
+    margin: 6px 0 0;
+    font-family: Georgia, serif;
+  }
+
+  .masthead-right {
+    text-align: right;
+    color: #C9C3B8;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    position: relative;
+    min-width: 220px;
+  }
+  .masthead-right .meta-line {
+    margin: 4px 0;
+    color: #C9C3B8;
+  }
+  .masthead-right .meta-date {
+    color: #FFFFFF;
+    font-size: 13px;
+  }
+  .watermark {
+    position: absolute;
+    right: -6px;
+    bottom: -10px;
+    color: #2A3548;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 96px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* ---------- Theme banner ---------- */
+  .theme-banner {
+    background: #1C2535;
+    color: #F5F1EA;
+    padding: 18px 36px;
+    border-top: 1px solid rgba(201,168,76,0.35);
+  }
+  .theme-banner p {
+    margin: 0;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.45;
+    font-family: Georgia, serif;
+  }
+  .theme-gold { color: #C9A84C; font-style: italic; }
+
+  /* ---------- Body two-column ---------- */
+  .body-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 28px;
+    margin-top: 24px;
+  }
+
+  .main-col {
+    background: #F5F1EA;
+    padding: 32px 34px;
+    border: 1px solid rgba(28,37,53,0.08);
+  }
+
+  .intro {
+    border-left: 4px solid #C9A84C;
+    padding: 4px 0 4px 18px;
+    margin-bottom: 30px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #1C2535;
+  }
+
+  .story-section { margin-top: 30px; }
+  .story-section:first-of-type { margin-top: 0; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .section-header h2 {
+    color: #B8922A;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.34em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 16px 0 0;
+    flex: 0 0 auto;
+  }
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, #C9A84C, rgba(201,168,76,0));
+  }
+
+  .story-card {
+    background: #FDFCF9;
+    border-left: 4px solid #C9A84C;
+    padding: 18px 22px 18px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .story-card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .story-num {
+    color: #C9A84C;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+  }
+  .story-tag {
+    background: #C9A84C;
+    color: #FFFFFF;
+    padding: 3px 10px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .story-headline {
+    margin: 4px 0 4px;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.25;
+  }
+  .story-headline a { color: #1C2535; }
+  .story-headline a:hover { color: #B8922A; }
+  .story-source {
+    color: #6F6A60;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .story-blurb {
+    margin: 0 0 14px;
+    font-size: 15.5px;
+    color: #2A2F3A;
+    line-height: 1.6;
+  }
+  .content-angle {
+    background: #EDE8DF;
+    border-left: 4px solid #C9A84C;
+    padding: 12px 16px;
+    margin-top: 10px;
+  }
+  .content-angle-label {
+    display: inline-block;
+    color: #B8922A;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .content-angle p {
+    margin: 0;
+    font-size: 14.5px;
+    color: #1C2535;
+    line-height: 1.55;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    background: #EDE8DF;
+    padding: 24px 22px;
+    border: 1px solid rgba(28,37,53,0.08);
+    align-self: start;
+    position: sticky;
+    top: 16px;
+  }
+  .author-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(28,37,53,0.12);
+  }
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #C9A84C;
+    color: #1C2535;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  .author-name {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1C2535;
+    margin: 0;
+  }
+  .author-title {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6F6A60;
+    margin: 4px 0 6px;
+  }
+  .author-link {
+    color: #B8922A;
+    font-size: 13px;
+  }
+
+  .focus-box {
+    background: #1C2535;
+    color: #F5F1EA;
+    padding: 18px 18px;
+    margin-bottom: 22px;
+  }
+  .focus-label {
+    color: #C9A84C;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .focus-body {
+    margin: 0;
+    color: #F5F1EA;
+    font-size: 14px;
+    line-height: 1.55;
+    font-family: Georgia, serif;
+  }
+
+  .calls-section h3 {
+    color: #1C2535;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(28,37,53,0.18);
+  }
+  .call {
+    margin-bottom: 14px;
+  }
+  .call-label {
+    display: block;
+    color: #B8922A;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .call-body {
+    margin: 0;
+    color: #1C2535;
+    font-size: 13.5px;
+    line-height: 1.5;
+    font-family: Georgia, serif;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    margin-top: 36px;
+    background: #1C2535;
+    border-top: 3px solid #C9A84C;
+    padding: 22px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    color: #C9C3B8;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11.5px;
+  }
+  .footer-left {
+    color: #C9A84C;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .footer-right {
+    color: #9CA0AB;
+    text-align: right;
+    max-width: 60%;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 880px) {
+    .body-grid { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .brand-brief { font-size: 64px; }
+    .watermark { font-size: 72px; }
+    .masthead-body { flex-direction: column; }
+    .masthead-right { text-align: left; margin-top: 18px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- MASTHEAD -->
+    <div class="masthead">
+      <div class="masthead-topbar">
+        <div class="topbar-left">Financial Advisor Research Edition</div>
+        <div class="topbar-rule"></div>
+        <div class="topbar-badge">Research Edition</div>
+      </div>
+      <div class="masthead-body">
+        <div class="masthead-left">
+          <div class="brand-the">The McNeil</div>
+          <div class="brand-brief">BRIEF</div>
+          <div class="brand-tagline">Intelligence for advisors who are paying attention.</div>
+        </div>
+        <div class="masthead-right">
+          <div class="meta-line meta-date">May 1, 2026</div>
+          <div class="meta-line">Financial Advisors &amp; RIAs</div>
+          <div class="meta-line">10 Stories</div>
+          <div class="watermark">05&middot;01</div>
+        </div>
+      </div>
+      <div class="theme-banner">
+        <p><em><span class="theme-gold">AI is rewriting the advisor desktop</span> while consolidation hits a new high — and Powell takes one last bow.</em></p>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body-grid">
+      <div class="main-col">
+        <div class="intro">Three forces are colliding this week and every one of them lands on your desk. AI is no longer a back-office assistant — it is restructuring the advisor stack itself, with note-takers becoming operating systems and one RIA publicly betting it can run with almost no human advisors at all. Meanwhile LPL just bought $31 billion of Mariner&#x27;s advisor network, the Fed held rates in Powell&#x27;s swan-song meeting, and the SEC keeps lining up its 2026 enforcement targets around testimonials and undisclosed conflicts. If you are not having pointed conversations with clients about both the Fed pause and the new permanent $15 million estate exclusion, your competitor is.</div>
+        
+      <section class="story-section">
+        <header class="section-header">
+          <h2>Industry M&amp;A</h2>
+          <span class="section-rule"></span>
+        </header>
+        
+        <article class="story-card">
+          <div class="story-card-head">
+            <span class="story-num">01</span>
+            <span class="story-tag">Industry M&amp;A</span>
+          </div>
+          <h3 class="story-headline">
+            <a href="https://www.advisorhub.com/lpl-to-buy-mariners-31b-aum-network-business/" target="_blank" rel="noopener">LPL Buys Mariner&#x27;s $31B Advisor Network in Year&#x27;s Biggest Deal</a>
+          </h3>
+          <div class="story-source">AdvisorHub</div>
+          <p class="story-blurb">LPL and its affiliate Private Advisor Group are absorbing 367 advisors and $31 billion in client assets from Mariner Advisor Network, the largest transaction of an already record-setting year. 223 advisors stay direct with LPL while 144 move to PAG&#x27;s hybrid RIA. The signal is consolidation is no longer a story about small tuck-ins — the platforms are eating each other&#x27;s affiliate channels in nine and ten-figure chunks.</p>
+          <div class="content-angle">
+            <span class="content-angle-label">Content Angle</span>
+            <p>Write a client note titled &#x27;Why your advisor&#x27;s firm name might change — and what it does not change for you.&#x27; Position your independence as the reason your client experience is insulated from this kind of disruption.</p>
+          </div>
+        </article>
+    
+
+        <article class="story-card">
+          <div class="story-card-head">
+            <span class="story-num">02</span>
+            <span class="story-tag">Industry M&amp;A</span>
+          </div>
+          <h3 class="story-headline">
+            <a href="https://www.wealthmanagement.com/ria-news/hightower-planning-more-flagship-firms-based-on-bahnsen-group-acquisition" target="_blank" rel="noopener">Hightower Plans More &#x27;Flagship&#x27; RIAs After Bahnsen Group Acquisition</a>
+          </h3>
+          <div class="story-source">WealthManagement.com</div>
+          <p class="story-blurb">Hightower is signaling more large-firm acquisitions modeled on its Bahnsen Group deal, with the new Hightower Signature Wealth channel already past $29 billion. The Bahnsen template — buy a brand-name firm and let it operate semi-autonomously — is now a playbook other aggregators will copy. Expect founder-led RIAs in the $1B–$5B band to receive more inbound calls than ever this year.</p>
+          <div class="content-angle">
+            <span class="content-angle-label">Content Angle</span>
+            <p>Publish a piece on what makes a firm acquirable in 2026 — process documentation, team continuity, and clean compliance — even for advisors who have no intention of selling. It is the same checklist that builds enterprise value.</p>
+          </div>
+        </article>
+    
+      </section>
+    
+
+      <section class="story-section">
+        <header class="section-header">
+          <h2>Technology / AI</h2>
+          <span class="section-rule"></span>
+        </header>
+        
+        <article class="story-card">
+          <div class="story-card-head">
+            <span class="story-num">03</span>
+            <span class="story-tag">Technology / AI</span>
+          </div>
+          <h3 class="story-headline">
+            <a href="https://www.wealthmanagement.com/artificial-intelligence/finny-launches-ai-tool-hunter-for-financial-advisors" target="_blank" rel="noopener">FINNY Launches Hunter, an AI Engine That Runs Advisor Marketing</a>
+          </h3>
+          <div class="story-source">WealthManagement.com</div>
+          <p class="story-blurb">FINNY&#x27;s new Hunter tool, fresh off a $17M Series A, automates marketing strategy, content creation, and campaign execution for advisors. It is an explicit move from tool to agent — software that operates on the advisor&#x27;s behalf rather than waiting for the advisor to operate it. The interesting question is not whether it works in April, it is what your COI referrals look like when half your peers are publishing machine-generated thought leadership at scale.</p>
+          <div class="content-angle">
+            <span class="content-angle-label">Content Angle</span>
+            <p>Audit your own content this month. If everything you publish could plausibly have been written by an AI agent in fifteen seconds, you have a positioning problem, not a marketing problem.</p>
+          </div>
+        </article>
+    
+
+        <article class="story-card">
+          <div class="story-card-head">
+            <span class="story-num">04</span>
+            <span class="story-tag">Technology / AI</span>
+          </div>
+          <h3 class="story-headline">
+            <a href="https://www.kitces.com/blog/the-latest-in-financial-advisortech-april-2026-wealthbox-ai-agents-tools-jump-rightcapital-wealthstream/" target="_blank" rel="noopener">The Latest in Financial AdvisorTech (April 2026): The Stack Is Becoming an OS</a>
+          </h3>
+          <div class="story-source">Kitces.com</div>
+          <p class="story-blurb">Kitces&#x27; April roundup is the clearest map yet of what is actually happening: Wealthbox is bolting AI agents onto the CRM, Jump and Zocks are morphing from note-takers into full advisor operating systems, RightCapital is parsing client documents automatically, and Morningstar is unloading ByAllAccounts. Translation: the AI integration layer is the new battleground, and your CRM is no longer the center of the desktop.</p>
+          <div class="content-angle">
+            <span class="content-angle-label">Content Angle</span>
+            <p>Run a 30-day test of one AI note-taker that integrates with your CRM. Write up what changed in your post-meeting workflow. That post will outperform any generic &#x27;AI is coming for advisors&#x27; piece by 10x.</p>
+          </div>
+        </article>
+    
+
+        <article class="story-card">
+          <div class="story-card-head">
+            <span class="story-num">05</span>
+            <span class="story-tag">Technology / AI</span>
+          </div>
+          <h3 class="story-headline">
+            <a href="https://www.thedailyupside.com/advisor/wealthtech/anthropic-bets-big-on-wealth-management-with-new-ai-tools/" target="_blank" rel="noopener">Range Says It Will Eliminate Most Human Advisors Within Three Years</a>
+          </h3>
+          <div class="story-source">The Daily Upside</div>
+          <p class="story-blurb">Range, an RIA managing $700 million, has said publicly it will replace most of its human advisor workforce with AI inside three years. Whether that is real, theatre, or a recruiting lever does not matter — the press release is now in every prospect&#x27;s search results. Have an answer ready when a client asks why they are paying you when an algorithm down the road is a tenth the price.</p>
+          <div class="content-angle">
+            <span class="content-angle-label">Content Angle</span>
+            <p>Draft a one-page &#x27;why a human advisor&#x27; document — not defensive, not nostalgic. Specific examples of decisions you have helped clients make in the last 12 months that no model could have made for them.</p>
+          </div>
+        </article>
+    
+      </section>
+    
+
+      <section class="story-section">
+        <header class="section-header">
+          <h2>Markets &amp; Fed</h2>
+          <span class="section-rule"></span>
+        </header>
+        
+        <article class="story-card">
+          <div class="story-card-head">
+            <span class="story-num">06</span>
+            <span class="story-tag">Markets &amp; Fed</span>
+          </div>
+          <h3 class="story-headline">
+            <a href="https://www.cnbc.com/2026/04/29/fed-interest-rate-decision-april-2026.html" target="_blank" rel="noopener">Fed Holds at 3.50–3.75% in Powell&#x27;s Final Meeting; Warsh Up Next</a>
+          </h3>
+          <div class="story-source">CNBC</div>
+          <p class="story-blurb">The FOMC voted 11-1 to hold rates steady, citing the inflation tick-up and Iran uncertainty. It was Powell&#x27;s last meeting; Kevin Warsh takes the chair next month. JPMorgan Research now sees no cuts in 2026 and the next move as a 25 bp hike in Q3 2027. Reset client expectations now — the easy-money narrative is over for the foreseeable future and rate-sensitive allocations need a deliberate review.</p>
+          <div class="content-angle">
+            <span class="content-angle-label">Content Angle</span>
+            <p>Send a one-paragraph client note this week: what the pause means for cash, intermediate bonds, and any dividend equity tilt. Lead with what does not change before what does.</p>
+          </div>
+        </article>
+    
+      </section>
+    
+
+      <section class="story-section">
+        <header class="section-header">
+          <h2>Regulatory / Compliance</h2>
+          <span class="section-rule"></span>
+        </header>
+        
+        <article class="story-card">
+          <div class="story-card-head">
+            <span class="story-num">07</span>
+            <span class="story-tag">Regulatory / Compliance</span>
+          </div>
+          <h3 class="story-headline">
+            <a href="https://www.mintz.com/insights-center/viewpoints/2026-02-25-sec-marketing-rule-enforcement-2026-why-buyers-breakaways-and" target="_blank" rel="noopener">SEC Marketing Rule Enforcement in 2026 Targets Testimonials and Endorsements</a>
+          </h3>
+          <div class="story-source">Mintz</div>
+          <p class="story-blurb">The December 2025 Risk Alert telegraphed exactly what is coming: testimonials, endorsements, and third-party ratings will drive the next enforcement wave, with an explicit warning that repeat findings get referred to Enforcement. Add the Vanguard Advisers conflict-of-interest case and the FY25 &#x27;fraud-first&#x27; framing and the picture is clear — the staff is hunting undisclosed compensation and incentives, not paperwork misses. Buyers, breakaways, and growth-mode RIAs are all squarely in scope.</p>
+          <div class="content-angle">
+            <span class="content-angle-label">Content Angle</span>
+            <p>Pull every testimonial, Google review, and Wealthtender-style rating you display and check three things: client status, compensation, and material conflict — each disclosed clear and prominent, not buried.</p>
+          </div>
+        </article>
+    
+      </section>
+    
+
+      <section class="story-section">
+        <header class="section-header">
+          <h2>Cybersecurity</h2>
+          <span class="section-rule"></span>
+        </header>
+        
+        <article class="story-card">
+          <div class="story-card-head">
+            <span class="story-num">08</span>
+            <span class="story-tag">Cybersecurity</span>
+          </div>
+          <h3 class="story-headline">
+            <a href="https://www.securitieslawyersblog.com/lpl-data-breach-led-to-unauthorized-trades-and-transactions-what-investors-should-understand/" target="_blank" rel="noopener">LPL and Mercer Both Hit by Breaches in the Same Week</a>
+          </h3>
+          <div class="story-source">Securities Lawyers Blog</div>
+          <p class="story-blurb">Phishing-driven malware compromised individual advisor devices at LPL, then jumped to the web portal — 1,581 clients affected, with unauthorized trades and transfers actually executed. Days later Mercer Advisors disclosed its own incident. The lesson is the obvious one nobody acts on until it happens: the weakest link is the advisor&#x27;s laptop, not the custodian&#x27;s vault.</p>
+          <div class="content-angle">
+            <span class="content-angle-label">Content Angle</span>
+            <p>Send a proactive &#x27;how we protect your data&#x27; email this month. Cover MFA, device policy, what an LPL-style breach would and would not affect, and what your client should do if they ever get a request to wire from your address that feels off.</p>
+          </div>
+        </article>
+    
+      </section>
+    
+
+      <section class="story-section">
+        <header class="section-header">
+          <h2>Markets &amp; Client Communication</h2>
+          <span class="section-rule"></span>
+        </header>
+        
+        <article class="story-card">
+          <div class="story-card-head">
+            <span class="story-num">09</span>
+            <span class="story-tag">Markets &amp; Client Communication</span>
+          </div>
+          <h3 class="story-headline">
+            <a href="https://www.investmentnews.com/alternatives/fidelity-rolls-out-private-markets-model-portfolios-with-alts-education-for-advisors/265530" target="_blank" rel="noopener">Fidelity Rolls Out Private Markets Model Portfolios for Advisors</a>
+          </h3>
+          <div class="story-source">InvestmentNews</div>
+          <p class="story-blurb">Fidelity is putting private equity, private credit, and real assets inside turnkey models for the advisor channel, with paired education content. Combined with the growing list of evergreen private credit ETFs and CNBC&#x27;s recent piece on private credit fears bleeding into fixed-income ETFs, the takeaway is the same: alts are now an allocation conversation, not a niche conversation. Have your written view before clients ask.</p>
+          <div class="content-angle">
+            <span class="content-angle-label">Content Angle</span>
+            <p>Write a 400-word piece called &#x27;Three honest questions to ask before your portfolio owns private credit&#x27; — liquidity, valuation, and what happens in a real default cycle. Honest, not hype.</p>
+          </div>
+        </article>
+    
+      </section>
+    
+
+      <section class="story-section">
+        <header class="section-header">
+          <h2>Practice Management</h2>
+          <span class="section-rule"></span>
+        </header>
+        
+        <article class="story-card">
+          <div class="story-card-head">
+            <span class="story-num">10</span>
+            <span class="story-tag">Practice Management</span>
+          </div>
+          <h3 class="story-headline">
+            <a href="https://www.advisorhub.com/ai-could-spark-next-wave-of-advisor-fee-compression-consultants-say/" target="_blank" rel="noopener">Consultants Warn AI Could Drive the Next Wave of Advisor Fee Compression</a>
+          </h3>
+          <div class="story-source">AdvisorHub</div>
+          <p class="story-blurb">Cerulli has the average AUM fee on a $10 million relationship slipping to 66 bps by 2026, and consultants now expect AI to accelerate the slide for advisors who anchor their value on planning and portfolio analysis. Combine that with 40% of advisors over 55 and only 6% of founders with a documented succession plan and you have the next five years of practice-management headlines. The advisors who win will sell something a model cannot price-anchor — judgment, coordination, and behavior.</p>
+          <div class="content-angle">
+            <span class="content-angle-label">Content Angle</span>
+            <p>Audit your own fee schedule and what each tier actually delivers. If you cannot name three things at your top tier that are genuinely outside an algorithm&#x27;s reach, build them this quarter.</p>
+          </div>
+        </article>
+    
+      </section>
+    
+      </div>
+
+      <aside class="sidebar">
+        <div class="author-block">
+          <div class="avatar">LM</div>
+          <p class="author-name">Lawain McNeil</p>
+          <p class="author-title">Editor &amp; Strategist</p>
+          <a class="author-link" href="https://lawainmcneil.com">lawainmcneil.com</a>
+        </div>
+
+        <div class="focus-box">
+          <span class="focus-label">This Issue's Focus</span>
+          <p class="focus-body">Consolidation, AI, and a Fed pause that closes the Powell era. The week&#x27;s signal: the infrastructure underneath your practice is moving faster than most advisors are tracking, and clients will start asking questions you should answer first.</p>
+        </div>
+
+        <div class="calls-section">
+          <h3>Strategic Calls</h3>
+          
+        <div class="call">
+          <span class="call-label">Act Now</span>
+          <p class="call-body">Audit your testimonial, endorsement, and third-party rating disclosures before the SEC&#x27;s next Marketing Rule sweep. Repeat findings now route to Enforcement.</p>
+        </div>
+        
+
+        <div class="call">
+          <span class="call-label">Client Opportunity</span>
+          <p class="call-body">Use the permanent $15M lifetime exclusion as the reason to reopen every estate plan you have not touched in two years.</p>
+        </div>
+        
+
+        <div class="call">
+          <span class="call-label">Content Priority</span>
+          <p class="call-body">A short note explaining what the Fed pause and Powell&#x27;s exit mean for the rate-sensitive parts of a client&#x27;s portfolio.</p>
+        </div>
+        
+
+        <div class="call">
+          <span class="call-label">Watch Closely</span>
+          <p class="call-body">Range publicly says it will replace most human advisors with AI in three years. Whether that is bluster or a leading indicator, your value prop needs to answer it.</p>
+        </div>
+        
+        </div>
+      </aside>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">Lawain McNeil &nbsp;|&nbsp; lawainmcneil.com</div>
+      <div class="footer-right">For informational purposes only. Not investment, tax, or legal advice. © 2026 Lawain McNeil. All rights reserved.</div>
+    </div>
+  </div>
+</body>
+</html>
